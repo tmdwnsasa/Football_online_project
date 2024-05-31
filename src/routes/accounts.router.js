@@ -12,4 +12,7 @@ router.get("/accounts", async (req, res) => {
   return res.status(200).json({ message: datas });
 });
 
+
+
+
 export default router;

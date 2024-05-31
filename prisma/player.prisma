@@ -6,17 +6,18 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./characterClient"
+  output   = "./playerClient"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
   provider = "mysql"
-  url      = env("CHARACTER_DATABASE_URL")
+  url      = env("PLAYER_DATABASE_URL")
 }
 
-model character{
-  character_id      Int         @id @default(autoincrement()) @map("character_id")
+model player{
+  player_id      Int            @default(autoincrement()) @map("player_id")
+  level             Int         @map("level")
   name              String      @map("name")
   speed             Int         @map("speed")
   goal_decision     Int         @map("goal_decision")
@@ -27,5 +28,7 @@ model character{
   created_at        DateTime    @default(now()) @map("created_at")
   updated_at        DateTime    @updatedAt @map("updated_at")
 
-  @@map("character")
+  @@id([player_id, level])
+
+  @@map("player")
 }
