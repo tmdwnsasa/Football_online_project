@@ -1,21 +1,21 @@
 import jwt from "jsonwebtoken";
-import { userPrisma } from "../utils/prisma/index.js";
+import { accountPrisma } from "../utils/prisma/index.js";
 
 export default async function (req, res, next) {
   try {
-    const authorization = req.cookies("Authorization");
+    const { authorization } = req.cookies;
 
     const [tokenType, token] = authorization.split(" ");
     if (tokenType !== "Bearer") return res.status(401).json({ message: "베어러 토큰이 아닙니다." });
 
     const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY);
-    const sign_up_id = decodedToken.sign_up_id;
-    const user = await userPrisma.user.findFirst({
-      where: { sign_up_id },
+    const account_id = decodedToken.account_id;
+    const account = await accountPrisma.account.findFirst({
+      where: { account_id },
     });
 
-    req.user = user;
-
+    req.user = account;
+    
     next();
   } catch (error) {
     switch (error.name) {

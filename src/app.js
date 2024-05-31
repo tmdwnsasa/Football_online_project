@@ -1,11 +1,15 @@
 import express from "express";
+import cookieParser from "cookie-parser";
+import dotEnv from "dotenv";
 import accountRouter from "./routes/accounts.router.js";
+
+dotEnv.config();
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-
+app.use(cookieParser());
 app.use("/api", [accountRouter]);
 
 app.listen(PORT, () => {
