@@ -86,5 +86,48 @@ router.post('/accounts/sign-in', async (req, res, next) => {
   }
 });
 
+// 캐시 구매 API
+router.patch("/accounts/:id/buy-cash", authMiddleware, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { accountId } = req.user;
+
+    const isExistAccount = await accountPrisma.account.findFirst({
+      where: {
+        id: id,
+        account_id: accountId,
+      },
+    });
+
+    if (!isExistAccount) {
+      return res.status(404).json({ message: "존재하지 않는 아이디입니다." });
+    }
+
+    await accountPrisma.account.update({
+      where: {
+        account_id: isExistAccount.account_id,
+      },
+      data: {
+        cash: isExistAccount.cash + 20000,
+      },
+    });
+
+    const responseCash = await accountPrisma.account.findFirst({
+      where: {
+        account_id: isExistAccount.account_id,
+      },
+      select: {
+        id: true,
+        nickname: true,
+        cash: true,
+      },
+    });
+
+    res.status(200).json( responseCash );
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 export default router;
