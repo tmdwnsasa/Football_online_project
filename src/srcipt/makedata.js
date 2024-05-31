@@ -14,6 +14,7 @@ console.log(playerdatas)
     for (const data of playerData["data"]) {
         await playerPrisma.player.create({
             data: {
+                level: data["level"],
                 name: data["name"],
                 speed: data["speed"],
                 goal_decision: data["goal_decision"],
