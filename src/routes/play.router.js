@@ -18,36 +18,59 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     // 매치 메이킹 로직 . . .
     // 내 계정의 점수와 비슷한 상대방 정보
-    let similarAccount = await accountPrisma.account.findMany({
-      where: {
-        acount_id: {
-          not: account_id,
-        },
-        score: {
-          lte: Math.floor(myAccount.score * 1.1),
-          gte: Math.floor(myAccount.score * 0.9),
-        },
-      },
-      select: {
-        acount_id: true,
-      },
-    });
-
-    if (!similarAccount) {
-      similarAccount = await accountPrisma.account.findMany({
+    while (1) {
+      let similarAccount = await accountPrisma.account.findMany({
         where: {
           acount_id: {
             not: account_id,
+          },
+          score: {
+            lte: Math.floor(myAccount.score * 1.1),
+            gte: Math.floor(myAccount.score * 0.9),
           },
         },
         select: {
           acount_id: true,
         },
       });
-    }
 
-    const similarArr = similarAccount.map(({ account_id }) => account_id);
-    const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
+      if (!similarAccount) {
+        similarAccount = await accountPrisma.account.findMany({
+          where: {
+            acount_id: {
+              not: account_id,
+            },
+          },
+          select: {
+            acount_id: true,
+          },
+        });
+      }
+
+      const similarArr = similarAccount.map(({ account_id }) => account_id);
+      const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
+
+      // 상대방 계정 찾기
+      const enemyAccount = await accountPrisma.account.findFirst({
+        where: {
+          account_id: enemyAccountId,
+        },
+      });
+
+      // 상대 팀 선수들 정보 가져오기
+      const enemyTeam = await accountPrisma.account_team.findMany({
+        where: { account_id: enemyAccount.account_id },
+        select: { player_id: true },
+      });
+
+      if (!enemyTeam.length != 3) {
+        continue;
+      }
+
+      if (enemyTeam.length === 3) {
+        break;
+      }
+    }
 
     // 가중치 설정
     const weights = {
@@ -63,6 +86,10 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       where: { account_id },
       select: { player_id: true },
     });
+
+    if (myTeam.length != 3) {
+      return res.status(400).json({ message: "팀 배치 선수가 3명이 아닙니다." });
+    }
 
     const myTeamPlayerIds = myTeam.map(({ player_id }) => player_id);
     const myTeamPlayers = await playerPrisma.player.findMany({
@@ -85,19 +112,6 @@ router.get("/match", authMiddleware, async (req, res, next) => {
         player.stamina * weights.stamina;
       return total + playerScore;
     }, 0);
-
-    // 상대방 계정 찾기
-    const enemyAccount = await accountPrisma.account.findFirst({
-      where: {
-        account_id: enemyAccountId,
-      },
-    });
-
-    // 상대 팀 선수들 정보 가져오기
-    const enemyTeam = await accountPrisma.account_team.findMany({
-      where: { account_id: enemyAccount.account_id },
-      select: { player_id: true },
-    });
 
     const enemyTeamPlayerIds = enemyTeam.map(({ player_id }) => player_id);
     const enemyPlayers = await playerPrisma.player.findMany({
