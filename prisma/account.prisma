@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./accountClient"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("ACCOUNT_DATABASE_URL")
+}
+
+model account {
+  account_id      Int         @id @default(autoincrement()) @map("account_id")
+  id              String      @unique @map("id")
+  password        String      @map("password")
+  nickname        String      @map("nickname")
+  score           Int         @default(1000) @map("score")
+  cash            Int         @default(500000) @map("cash")
+  win             Int         @default(0) @map("win")
+  draw            Int         @default(0) @map("draw")
+  lose            Int         @default(0) @map("lose")
+  created_at      DateTime    @default(now()) @map("created_at")
+
+  character_inventory character_inventory[]
+  account_team account_team[]
+  @@map("account")
+}
+
+model character_inventory {
+  character_list_id   Int         @id @default(autoincrement()) @map("character_list_id")
+  account_id          Int         @map("account_id")
+  charater_id         Int         @map("character_id")
+  created_at          DateTime    @default(now()) @map("created_at")
+  updated_at          DateTime    @updatedAt @map("updated_at")
+
+  account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
+
+  @@map("character_inventory")
+}
+
+model account_team {
+  account_team_id   Int         @id @default(autoincrement()) @map("account_team_id")
+  account_id        Int         @map("account_id")
+  charater_id       Int         @map("character_id")
+  created_at        DateTime    @default(now()) @map("created_at")
+  updated_at        DateTime    @updatedAt @map("updated_at")
+
+  account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
+
+  @@map("account_team")
+}

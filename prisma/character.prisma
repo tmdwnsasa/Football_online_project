@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./characterClient"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("CHARACTER_DATABASE_URL")
+}
+
+model character{
+  character_id      Int         @id @default(autoincrement()) @map("character_id")
+  name              String      @map("name")
+  speed             Int         @map("speed")
+  goal_decision     Int         @map("goal_decision")
+  shoot_power       Int         @map("shoot_power")
+  defense           Int         @map("defense")
+  stamina           Int         @map("stamina")
+  upgrade           Int         @default(1) @map("upgrade")
+  created_at        DateTime    @default(now()) @map("created_at")
+  updated_at        DateTime    @updatedAt @map("updated_at")
+
+  @@map("character")
+}
