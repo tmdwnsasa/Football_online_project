@@ -57,7 +57,7 @@ model account_team {
 
 model rank{
   rank_id  Int     @id @default(autoincrement()) @map("rank_id")
-  account_id  Int  @map("account_id")
+  account_id  Int  @unique @map("account_id")
   win         Int  @default(0)     @map("win")
   draw        Int  @default(0)     @map("draw")
   lose        Int  @default(0)     @map("lose")
