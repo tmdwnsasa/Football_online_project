@@ -56,12 +56,12 @@ model account_team {
 }
 
 model rank{
-  rank_id  Int  @id @default(autoincrement()) @map("rank_id")
-  account_id  Int  @unique @map("account_id")
-  win         Int  @map("win")
-  draw        Int  @map("draw")
-  lose        Int  @map("lose")
-  score       Int  @map("score")
+  rank_id  Int     @id @default(autoincrement()) @map("rank_id")
+  account_id  Int  @map("account_id")
+  win         Int  @default(0)     @map("win")
+  draw        Int  @default(0)     @map("draw")
+  lose        Int  @default(0)     @map("lose")
+  score       Int  @default(1000)  @map("score")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
   

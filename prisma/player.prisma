@@ -16,7 +16,7 @@ datasource db {
 }
 
 model player{
-  player_id      Int            @default(autoincrement()) @map("player_id")
+  player_id         Int         @map("player_id")
   level             Int         @map("level")
   name              String      @map("name")
   speed             Int         @map("speed")
