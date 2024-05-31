@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "./playerClient"
+  provider      = "prisma-client-js"
+  output        = "./playerClient"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
@@ -28,6 +28,5 @@ model player{
   updated_at        DateTime    @updatedAt @map("updated_at")
 
   @@id([player_id, level])
-
   @@map("player")
 }

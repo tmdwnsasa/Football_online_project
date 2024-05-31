@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "./accountClient"
+  provider      = "prisma-client-js"
+  output        = "./accountClient"
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
@@ -16,27 +16,28 @@ datasource db {
 }
 
 model account {
-  account_id      Int         @id @default(autoincrement()) @map("account_id")
-  id              String      @unique @map("id")
-  password        String      @map("password")
-  nickname        String      @map("nickname")
-  cash            Int         @default(500000) @map("cash")
-  created_at      DateTime    @default(now()) @map("created_at")
+  account_id Int      @id @default(autoincrement()) @map("account_id")
+  id         String   @unique @map("id")
+  password   String   @map("password")
+  nickname   String   @map("nickname")
+  cash       Int      @default(500000) @map("cash")
+  created_at DateTime @default(now()) @map("created_at")
 
   player_inventory player_inventory[]
-  account_team account_team[]
+  account_team     account_team[]
 
   rank rank?
+
   @@map("account")
 }
 
 model player_inventory {
-  player_inventory_id       Int         @id @default(autoincrement()) @map("player_inventory_id")
-  account_id                Int         @map("account_id")
-  player_id                 Int         @map("player_id")
-  level                     Int         @map("level")
-  created_at                DateTime    @default(now()) @map("created_at")
-  updated_at                DateTime    @updatedAt @map("updated_at")
+  player_inventory_id Int      @id @default(autoincrement()) @map("player_inventory_id")
+  account_id          Int      @map("account_id")
+  player_id           Int      @map("player_id")
+  level               Int      @map("level")
+  created_at          DateTime @default(now()) @map("created_at")
+  updated_at          DateTime @updatedAt @map("updated_at")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
@@ -44,11 +45,11 @@ model player_inventory {
 }
 
 model account_team {
-  account_team_id   Int         @id @default(autoincrement()) @map("account_team_id")
-  account_id        Int         @map("account_id")
-  player_id         Int         @map("player_id")
-  created_at        DateTime    @default(now()) @map("created_at")
-  updated_at        DateTime    @updatedAt @map("updated_at")
+  account_team_id Int      @id @default(autoincrement()) @map("account_team_id")
+  account_id      Int      @map("account_id")
+  player_id       Int      @map("player_id")
+  created_at      DateTime @default(now()) @map("created_at")
+  updated_at      DateTime @updatedAt @map("updated_at")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
@@ -64,6 +65,6 @@ model rank{
   score       Int  @default(1000)  @map("score")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
-  
+
   @@map("rank")
 }
