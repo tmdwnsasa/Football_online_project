@@ -20,38 +20,49 @@ model account {
   id              String      @unique @map("id")
   password        String      @map("password")
   nickname        String      @map("nickname")
-  score           Int         @default(1000) @map("score")
   cash            Int         @default(500000) @map("cash")
-  win             Int         @default(0) @map("win")
-  draw            Int         @default(0) @map("draw")
-  lose            Int         @default(0) @map("lose")
   created_at      DateTime    @default(now()) @map("created_at")
 
-  character_inventory character_inventory[]
+  player_inventory player_inventory[]
   account_team account_team[]
+  rank rank?
   @@map("account")
 }
 
-model character_inventory {
-  character_list_id   Int         @id @default(autoincrement()) @map("character_list_id")
-  account_id          Int         @map("account_id")
-  charater_id         Int         @map("character_id")
-  created_at          DateTime    @default(now()) @map("created_at")
-  updated_at          DateTime    @updatedAt @map("updated_at")
+model player_inventory {
+  player_inventory_id       Int         @id @default(autoincrement()) @map("player_inventory_id")
+  account_id                Int         @map("account_id")
+  player_id                 Int         @map("player_id")
+  level                     Int         @map("level")
+  created_at                DateTime    @default(now()) @map("created_at")
+  updated_at                DateTime    @updatedAt @map("updated_at")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
-  @@map("character_inventory")
+  @@map("player_inventory")
 }
 
 model account_team {
   account_team_id   Int         @id @default(autoincrement()) @map("account_team_id")
   account_id        Int         @map("account_id")
-  charater_id       Int         @map("character_id")
+  player_id         Int         @map("player_id")
   created_at        DateTime    @default(now()) @map("created_at")
   updated_at        DateTime    @updatedAt @map("updated_at")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
 
   @@map("account_team")
+}
+
+model rank{
+  rank_id  Int  @id @default(autoincrement()) @map("rank_id")
+  account_id  Int  @unique @map("account_id")
+  win         Int  @map("win")
+  draw        Int  @map("draw")
+  lose        Int  @map("lose")
+  score       Int  @map("score")
+
+  account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
+  
+  @@map("rank")
 }
