@@ -25,7 +25,8 @@ model account {
 
   player_inventory player_inventory[]
   account_team account_team[]
-  rank rank[]
+
+  rank rank?
   @@map("account")
 }
 
