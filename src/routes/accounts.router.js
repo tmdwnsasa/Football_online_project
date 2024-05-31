@@ -26,7 +26,7 @@ router.post('/accounts/sign-up', async (req, res, next) => {
     if (!vaildIdname.test(id)) {
       return res
         .status(400)
-        .json({ message: '아이디는 영어 소문자와 숫자만 사용할 수 있습니다.' });
+        .json({ message: '아이디는 영어와 숫자만 사용할 수 있습니다.' });
     }
 
     if (password.length < 6) {
@@ -85,43 +85,5 @@ router.post('/accounts/sign-in', async (req, res, next) => {
     next(error);
   }
 });
-
-// 캐시 구매 API
-router.patch(
-  '/accounts/:id/buy-cash',
-  authMiddleware,
-  async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const { accountId } = req.user;
-      
-      const isExistAccount = await accountPrisma.account.findFirst({
-        where: {
-          id: id,
-          account_id: accountId,
-        },
-      });
-
-      if (!isExistAccount) {
-        return res
-          .status(404)
-          .json({ message: '.' });
-      }
-
-      const cashUpdate = await accountPrisma.account.update({
-        where: {
-          account_id: isExistAccount.account_id,
-        },
-        data: {
-          cash: isExistAccount.cash + 50000,
-        },
-      });
-      
-      res.status(200).json({ data: cashUpdate });
-    } catch (error) {
-      next(error);
-    }
-  }
-);
 
 export default router;
