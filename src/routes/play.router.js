@@ -1,21 +1,53 @@
 import express from "express";
 import { accountPrisma } from "../utils/prisma/index.js";
-import { characterPrisma } from "../utils/prisma/index.js";
+import { playerPrisma } from "../utils/prisma/index.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.get("/games/play", authMiddleware, async (req, res, next) => {
+router.get("/match", authMiddleware, async (req, res, next) => {
   try {
-    const { account_id } = req.user;
+    const { account_id } = req.account;
 
-    // 현재 나의 게임 점수
-    const currentUser = await accountPrisma.rank.findFirst({
-      where: { account_id },
-      select: { score: true },
+    // 내 계정 찾기
+    const myAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: account_id,
+      },
     });
 
     // 매치 메이킹 로직 . . .
+    // 내 계정의 점수와 비슷한 상대방 정보
+    let similarAccount = await accountPrisma.account.findMany({
+      where: {
+        acount_id: {
+          not: account_id,
+        },
+        score: {
+          lte: Math.floor(myAccount.score * 1.1),
+          gte: Math.floor(myAccount.score * 0.9),
+        },
+      },
+      select: {
+        acount_id: true,
+      },
+    });
+
+    if (!similarAccount) {
+      similarAccount = await accountPrisma.account.findMany({
+        where: {
+          acount_id: {
+            not: account_id,
+          },
+        },
+        select: {
+          acount_id: true,
+        },
+      });
+    }
+
+    const similarArr = similarAccount.map(({ account_id }) => account_id);
+    const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
 
     // 가중치 설정
     const weights = {
@@ -27,15 +59,14 @@ router.get("/games/play", authMiddleware, async (req, res, next) => {
     };
 
     // 내 팀 선수들 정보 가져오기
-    const myTeamCharacters = await accountPrisma.account_team.findMany({
+    const myTeam = await accountPrisma.account_team.findMany({
       where: { account_id },
-      select: { character_id: true },
+      select: { player_id: true },
     });
 
-    const myCharacterIds = myTeamCharacters.map(({ character_id }) => character_id);
-
-    const myCharacters = await characterPrisma.player.findMany({
-      where: { character_id: { in: myCharacterIds } },
+    const myTeamPlayerIds = myTeam.map(({ player_id }) => player_id);
+    const myTeamPlayers = await playerPrisma.player.findMany({
+      where: { player_id: { in: myTeamPlayerIds } },
       select: {
         speed: true,
         goal_decision: true,
@@ -45,26 +76,32 @@ router.get("/games/play", authMiddleware, async (req, res, next) => {
       },
     });
 
-    const totalScore = myCharacters.reduce((total, character) => {
-      const characterScore =
-        character.speed * weights.speed +
-        character.goal_decision * weights.goalDecision +
-        character.shoot_power * weights.shootPower +
-        character.defense * weights.defense +
-        character.stamina * weights.stamina;
-      return total + characterScore;
+    const myTeamtotalScore = myTeamPlayers.reduce((total, player) => {
+      const playerScore =
+        player.speed * weights.speed +
+        player.goal_decision * weights.goalDecision +
+        player.shoot_power * weights.shootPower +
+        player.defense * weights.defense +
+        player.stamina * weights.stamina;
+      return total + playerScore;
     }, 0);
 
-    // 상대 팀 선수들 정보 가져오기
-    const opponentTeamCharacters = await accountPrisma.account_team.findMany({
-      where: { account_team_id: selectedTeam.account_team_id },
-      select: { charater_id: true },
+    // 상대방 계정 찾기
+    const enemyAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: enemyAccountId,
+      },
     });
 
-    const opponentCharacterIds = opponentTeamCharacters.map(({ character_id }) => character_id);
+    // 상대 팀 선수들 정보 가져오기
+    const enemyTeam = await accountPrisma.account_team.findMany({
+      where: { account_id: enemyAccount.account_id },
+      select: { player_id: true },
+    });
 
-    const opponentCharacters = await characterPrisma.player.findMany({
-      where: { character_id: { in: opponentCharacterIds } },
+    const enemyTeamPlayerIds = enemyTeam.map(({ player_id }) => player_id);
+    const enemyPlayers = await playerPrisma.player.findMany({
+      where: { player_id: { in: enemyTeamPlayerIds } },
       select: {
         speed: true,
         goal_decision: true,
@@ -74,18 +111,18 @@ router.get("/games/play", authMiddleware, async (req, res, next) => {
       },
     });
 
-    const opponentScore = opponentCharacters.reduce((total, character) => {
-      const characterScore =
-        character.speed * weights.speed +
-        character.goal_decision * weights.goalDecision +
-        character.shoot_power * weights.shootPower +
-        character.defense * weights.defense +
-        character.stamina * weights.stamina;
-      return total + characterScore;
+    const enemyTeamTotalScore = enemyPlayers.reduce((total, player) => {
+      const playerScore =
+        player.speed * weights.speed +
+        player.goal_decision * weights.goalDecision +
+        player.shoot_power * weights.shootPower +
+        player.defense * weights.defense +
+        player.stamina * weights.stamina;
+      return total + playerScore;
     }, 0);
 
     // 승패 결정 로직 . . .
-    const scoreDifference = totalScore - opponentScore;
+    const scoreDifference = myTeamtotalScore - enemyTeamTotalScore;
     const influence = Math.sqrt(Math.abs(scoreDifference)) * (scoreDifference > 0 ? 1 : -1); // 점수차에 따른 가중치
     const randomFactor = Math.random() * 50 - 25; // -25 ~ 25
 
@@ -93,44 +130,83 @@ router.get("/games/play", authMiddleware, async (req, res, next) => {
 
     let result, newScore;
 
+    // 현재 나의 게임 점수
+    const myScore = await accountPrisma.rank.findFirst({
+      where: { account_id: myAccount.account_id },
+    });
+
+    // 상대방 게임 점수
+    const enemyScore = await accountPrisma.rank.findFirst({
+      where: { account_id: enemyAccount.account_id },
+    });
+
+    const updateScore = [myScore, enemyScore];
+
     if (finalScore > 10) {
       const ourGoals = Math.floor(Math.random() * 4) + 2;
       const theirGoals = Math.floor(Math.random() * Math.min(3, ourGoals));
       result = `승리! 우리팀 ${ourGoals} - ${theirGoals} 상대팀`;
-      newScore = currentUser.score + 10;
+      newScore = myScore.score + 10;
 
-      await accountPrisma.rank.create({
+      await accountPrisma.rank.update({
+        where: {
+          account_id: myAccount.account_id,
+        },
         data: {
-          account_id,
-          win: currentUser.win + 1,
-          score: currentUser.score + 10,
+          win: myScore.win + 1,
+          score: myScore.score + 10,
+        },
+      });
+
+      await accountPrisma.rank.update({
+        where: {
+          account_id: enemyAccount.account_id,
+        },
+        data: {
+          lose: enemyScore.lose + 1,
+          score: enemyScore.score - 10,
         },
       });
     } else if (finalScore < -10) {
       const theirGoals = Math.floor(Math.random() * 4) + 2;
       const ourGoals = Math.floor(Math.random() * Math.min(3, theirGoals));
       result = `패배... 우리팀 ${ourGoals} - ${theirGoals} 상대팀`;
-      newScore = currentUser.score - 10;
+      newScore = myScore.score - 10;
 
-      await accountPrisma.rank.create({
+      await accountPrisma.rank.update({
+        where: {
+          account_id: myAccount.account_id,
+        },
         data: {
-          account_id,
-          lose: currentUser.lose + 1,
-          score: currentUser.score - 10,
+          lose: myScore.lose + 1,
+          score: myScore.score - 10,
+        },
+      });
+
+      await accountPrisma.rank.update({
+        where: {
+          account_id: enemyAccount.account_id,
+        },
+        data: {
+          win: enemyScore.win + 1,
+          score: enemyScore.score + 10,
         },
       });
     } else {
       const goals = Math.floor(Math.random() * 3) + 1;
       result = `무승부! 우리팀 ${goals} - ${goals} 상대팀`;
-      newScore = currentUser.score;
+      newScore = myScore.score;
 
-      await accountPrisma.rank.create({
-        data: {
-          account_id,
-          draw: currentUser.draw + 1,
-          score: currentUser.score,
-        },
-      });
+      for (const account of updateScore) {
+        await accountPrisma.rank.update({
+          where: {
+            account_id: account.account_id,
+          },
+          data: {
+            draw: account.draw + 1,
+          },
+        });
+      }
     }
 
     return res.status(201).json({ result, score: newScore });
