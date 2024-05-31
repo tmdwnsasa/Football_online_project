@@ -25,15 +25,16 @@ model account {
 
   player_inventory player_inventory[]
   account_team account_team[]
-  rank rank[]
+
+  rank rank?
   @@map("account")
 }
 
 model player_inventory {
-  player_inventory_id       Int         @id @default(autoincrement()) @map("player_list_id")
+  player_inventory_id       Int         @id @default(autoincrement()) @map("player_inventory_id")
   account_id                Int         @map("account_id")
   player_id                 Int         @map("player_id")
-  level                     Int         @map("level)
+  level                     Int         @map("level")
   created_at                DateTime    @default(now()) @map("created_at")
   updated_at                DateTime    @updatedAt @map("updated_at")
 
@@ -55,8 +56,8 @@ model account_team {
 }
 
 model rank{
-  ranking_id  Int  @id @default(autoincrement()) @map("ranking_id)
-  account_id  Int  @map("account_id")
+  rank_id  Int  @id @default(autoincrement()) @map("rank_id")
+  account_id  Int  @unique @map("account_id")
   win         Int  @map("win")
   draw        Int  @map("draw")
   lose        Int  @map("lose")

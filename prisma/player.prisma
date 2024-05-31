@@ -24,7 +24,6 @@ model player{
   shoot_power       Int         @map("shoot_power")
   defense           Int         @map("defense")
   stamina           Int         @map("stamina")
-  upgrade           Int         @default(1) @map("upgrade")
   created_at        DateTime    @default(now()) @map("created_at")
   updated_at        DateTime    @updatedAt @map("updated_at")
 
