@@ -30,10 +30,10 @@ model account {
 }
 
 model player_inventory {
-  player_inventory_id       Int         @id @default(autoincrement()) @map("player_list_id")
+  player_inventory_id       Int         @id @default(autoincrement()) @map("player_inventory_id")
   account_id                Int         @map("account_id")
   player_id                 Int         @map("player_id")
-  level                     Int         @map("level)
+  level                     Int         @map("level")
   created_at                DateTime    @default(now()) @map("created_at")
   updated_at                DateTime    @updatedAt @map("updated_at")
 
@@ -55,12 +55,12 @@ model account_team {
 }
 
 model rank{
-  ranking_id  Int  @id @default(autoincrement()) @map("ranking_id)
+  rank_id  Int     @id @default(autoincrement()) @map("rank_id")
   account_id  Int  @map("account_id")
-  win         Int  @map("win")
-  draw        Int  @map("draw")
-  lose        Int  @map("lose")
-  score       Int  @map("score")
+  win         Int  @default(0)     @map("win")
+  draw        Int  @default(0)     @map("draw")
+  lose        Int  @default(0)     @map("lose")
+  score       Int  @default(1000)  @map("score")
 
   account account @relation(fields: [account_id], references: [account_id], onDelete: Cascade)
   

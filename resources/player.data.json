@@ -1,2168 +1,2403 @@
 {
-    "data": [
+    "data":[
     {
+            "player_id" : 0,
             "level" : 1,
             "name" : "이상헌",
-            "speed" : 80,
-            "goal_decision" : 99,
-            "shoot_power" : 95,
-            "defense" : 60,
-            "stamina" : 74
-    },
-    {
-            "level" : 1,
-            "name" : "무고사",
-            "speed" : 54,
-            "goal_decision" : 91,
-            "shoot_power" : 68,
-            "defense" : 60,
-            "stamina" : 55
-    },
-    {
-            "level" : 1,
-            "name" : "이동경",
-            "speed" : 93,
-            "goal_decision" : 76,
-            "shoot_power" : 51,
-            "defense" : 70,
-            "stamina" : 78
-    },
-    {
-            "level" : 1,
-            "name" : "이승우",
-            "speed" : 96,
-            "goal_decision" : 61,
-            "shoot_power" : 53,
-            "defense" : 86,
-            "stamina" : 95
-    },
-    {
-            "level" : 1,
-            "name" : "정재희",
-            "speed" : 80,
-            "goal_decision" : 68,
-            "shoot_power" : 81,
-            "defense" : 68,
-            "stamina" : 63
-    },
-    {
-            "level" : 1,
-            "name" : "일류첸코",
-            "speed" : 90,
-            "goal_decision" : 97,
-            "shoot_power" : 56,
-            "defense" : 54,
-            "stamina" : 73
-    },
-    {
-            "level" : 1,
-            "name" : "야고",
-            "speed" : 92,
+            "speed" : 65,
             "goal_decision" : 52,
-            "shoot_power" : 86,
-            "defense" : 84,
-            "stamina" : 84
-    },
-    {
-            "level" : 1,
-            "name" : "김현욱",
-            "speed" : 100,
-            "goal_decision" : 97,
-            "shoot_power" : 66,
-            "defense" : 75,
-            "stamina" : 71
-    },
-    {
-            "level" : 1,
-            "name" : "이희균",
-            "speed" : 55,
-            "goal_decision" : 89,
-            "shoot_power" : 58,
-            "defense" : 98,
-            "stamina" : 53
-    },
-    {
-            "level" : 1,
-            "name" : "윌리안",
-            "speed" : 97,
-            "goal_decision" : 56,
-            "shoot_power" : 63,
-            "defense" : 92,
-            "stamina" : 89
-    },
-    {
-            "level" : 1,
-            "name" : "루빅손",
-            "speed" : 58,
-            "goal_decision" : 95,
-            "shoot_power" : 86,
-            "defense" : 88,
-            "stamina" : 75
-    },
-    {
-            "level" : 1,
-            "name" : "엄원상",
-            "speed" : 98,
-            "goal_decision" : 54,
-            "shoot_power" : 83,
-            "defense" : 94,
-            "stamina" : 73
-    },
-    {
-            "level" : 1,
-            "name" : "전병관",
-            "speed" : 90,
-            "goal_decision" : 79,
-            "shoot_power" : 73,
-            "defense" : 56,
-            "stamina" : 93
-    },
-    {
-            "level" : 1,
-            "name" : "주민규",
-            "speed" : 76,
-            "goal_decision" : 63,
-            "shoot_power" : 70,
-            "defense" : 96,
-            "stamina" : 68
-    },
-    {
-            "level" : 1,
-            "name" : "양민혁",
-            "speed" : 66,
-            "goal_decision" : 64,
-            "shoot_power" : 75,
-            "defense" : 85,
-            "stamina" : 64
-    },
-    {
-            "level" : 1,
-            "name" : "가브리엘",
-            "speed" : 55,
-            "goal_decision" : 96,
-            "shoot_power" : 89,
-            "defense" : 56,
-            "stamina" : 88
-    },
-    {
-            "level" : 1,
-            "name" : "박용희",
-            "speed" : 89,
-            "goal_decision" : 58,
-            "shoot_power" : 89,
-            "defense" : 66,
-            "stamina" : 60
-    },
-    {
-            "level" : 1,
-            "name" : "마틴 아담",
-            "speed" : 82,
-            "goal_decision" : 87,
-            "shoot_power" : 78,
-            "defense" : 70,
-            "stamina" : 100
-    },
-    {
-            "level" : 1,
-            "name" : "요시노",
-            "speed" : 100,
-            "goal_decision" : 86,
-            "shoot_power" : 65,
-            "defense" : 66,
-            "stamina" : 73
-    },
-    {
-            "level" : 1,
-            "name" : "송민규",
-            "speed" : 73,
-            "goal_decision" : 94,
-            "shoot_power" : 53,
-            "defense" : 54,
-            "stamina" : 56
-    },
-    {
-            "level" : 1,
-            "name" : "제르소",
-            "speed" : 64,
-            "goal_decision" : 95,
-            "shoot_power" : 94,
-            "defense" : 60,
-            "stamina" : 52
-    },
-    {
-            "level" : 1,
-            "name" : "이중민",
-            "speed" : 80,
-            "goal_decision" : 93,
-            "shoot_power" : 97,
-            "defense" : 79,
-            "stamina" : 97
-    },
-    {
-            "level" : 1,
-            "name" : "유리 조나탄",
-            "speed" : 62,
-            "goal_decision" : 61,
-            "shoot_power" : 82,
-            "defense" : 64,
-            "stamina" : 96
-    },
-    {
-            "level" : 1,
-            "name" : "문선민",
-            "speed" : 60,
-            "goal_decision" : 76,
-            "shoot_power" : 57,
-            "defense" : 60,
-            "stamina" : 99
-    },
-    {
-            "level" : 1,
-            "name" : "이건희",
-            "speed" : 91,
-            "goal_decision" : 78,
-            "shoot_power" : 79,
-            "defense" : 58,
-            "stamina" : 96
-    },
-    {
-            "level" : 1,
-            "name" : "이호재",
-            "speed" : 80,
-            "goal_decision" : 63,
-            "shoot_power" : 91,
-            "defense" : 59,
-            "stamina" : 91
-    },
-    {
-            "level" : 1,
-            "name" : "정한민",
-            "speed" : 66,
-            "goal_decision" : 73,
-            "shoot_power" : 61,
-            "defense" : 61,
-            "stamina" : 82
-    },
-    {
-            "level" : 1,
-            "name" : "여횽규",
-            "speed" : 65,
-            "goal_decision" : 56,
-            "shoot_power" : 76,
-            "defense" : 60,
-            "stamina" : 52
-    },
-    {
-            "level" : 1,
-            "name" : "정재상",
-            "speed" : 60,
-            "goal_decision" : 95,
-            "shoot_power" : 99,
-            "defense" : 91,
-            "stamina" : 97
-    },
-    {
-            "level" : 1,
-            "name" : "진성욱",
-            "speed" : 75,
-            "goal_decision" : 66,
-            "shoot_power" : 98,
-            "defense" : 67,
-            "stamina" : 78
-    },
-
-    {
-            "level" : 2,
-            "name" : "이상헌",
-            "speed" : 81,
-            "goal_decision" : 100,
-            "shoot_power" : 96,
-            "defense" : 61,
-            "stamina" : 75
-    },
-    {
-            "level" : 2,
-            "name" : "무고사",
-            "speed" : 55,
-            "goal_decision" : 92,
-            "shoot_power" : 69,
-            "defense" : 61,
-            "stamina" : 56
-    },
-    {
-            "level" : 2,
-            "name" : "이동경",
-            "speed" : 94,
-            "goal_decision" : 77,
-            "shoot_power" : 52,
-            "defense" : 71,
-            "stamina" : 79
-    },
-    {
-            "level" : 2,
-            "name" : "이승우",
-            "speed" : 97,
-            "goal_decision" : 62,
-            "shoot_power" : 54,
-            "defense" : 87,
-            "stamina" : 96
-    },
-    {
-            "level" : 2,
-            "name" : "정재희",
-            "speed" : 81,
-            "goal_decision" : 69,
-            "shoot_power" : 82,
-            "defense" : 69,
-            "stamina" : 64
-    },
-    {
-            "level" : 2,
-            "name" : "일류첸코",
-            "speed" : 91,
-            "goal_decision" : 98,
-            "shoot_power" : 57,
-            "defense" : 55,
-            "stamina" : 74
-    },
-    {
-            "level" : 2,
-            "name" : "야고",
-            "speed" : 93,
-            "goal_decision" : 53,
-            "shoot_power" : 87,
-            "defense" : 85,
-            "stamina" : 85
-    },
-    {
-            "level" : 2,
-            "name" : "김현욱",
-            "speed" : 101,
-            "goal_decision" : 98,
-            "shoot_power" : 67,
-            "defense" : 76,
-            "stamina" : 72
-    },
-    {
-            "level" : 2,
-            "name" : "이희균",
-            "speed" : 56,
-            "goal_decision" : 90,
-            "shoot_power" : 59,
-            "defense" : 99,
-            "stamina" : 54
-    },
-    {
-            "level" : 2,
-            "name" : "윌리안",
-            "speed" : 98,
-            "goal_decision" : 57,
-            "shoot_power" : 64,
-            "defense" : 93,
-            "stamina" : 90
-    },
-    {
-            "level" : 2,
-            "name" : "루빅손",
-            "speed" : 59,
-            "goal_decision" : 96,
-            "shoot_power" : 87,
-            "defense" : 89,
-            "stamina" : 76
-    },
-    {
-            "level" : 2,
-            "name" : "엄원상",
-            "speed" : 99,
-            "goal_decision" : 55,
-            "shoot_power" : 84,
-            "defense" : 95,
-            "stamina" : 74
-    },
-    {
-            "level" : 2,
-            "name" : "전병관",
-            "speed" : 91,
-            "goal_decision" : 80,
             "shoot_power" : 74,
-            "defense" : 57,
-            "stamina" : 94
-    },
-    {
-            "level" : 2,
-            "name" : "주민규",
-            "speed" : 77,
-            "goal_decision" : 64,
-            "shoot_power" : 71,
-            "defense" : 97,
-            "stamina" : 69
-    },
-    {
-            "level" : 2,
-            "name" : "양민혁",
-            "speed" : 67,
-            "goal_decision" : 65,
-            "shoot_power" : 76,
-            "defense" : 86,
-            "stamina" : 65
-    },
-    {
-            "level" : 2,
-            "name" : "가브리엘",
-            "speed" : 56,
-            "goal_decision" : 97,
-            "shoot_power" : 90,
-            "defense" : 57,
-            "stamina" : 89
-    },
-    {
-            "level" : 2,
-            "name" : "박용희",
-            "speed" : 90,
-            "goal_decision" : 59,
-            "shoot_power" : 90,
-            "defense" : 67,
-            "stamina" : 61
-    },
-    {
-            "level" : 2,
-            "name" : "마틴 아담",
-            "speed" : 83,
-            "goal_decision" : 88,
-            "shoot_power" : 79,
-            "defense" : 71,
-            "stamina" : 101
-    },
-    {
-            "level" : 2,
-            "name" : "요시노",
-            "speed" : 101,
-            "goal_decision" : 87,
-            "shoot_power" : 66,
-            "defense" : 67,
-            "stamina" : 74
-    },
-    {
-            "level" : 2,
-            "name" : "송민규",
-            "speed" : 74,
-            "goal_decision" : 95,
-            "shoot_power" : 54,
-            "defense" : 55,
-            "stamina" : 57
-    },
-    {
-            "level" : 2,
-            "name" : "제르소",
-            "speed" : 65,
-            "goal_decision" : 96,
-            "shoot_power" : 95,
-            "defense" : 61,
-            "stamina" : 53
-    },
-    {
-            "level" : 2,
-            "name" : "이중민",
-            "speed" : 81,
-            "goal_decision" : 94,
-            "shoot_power" : 98,
-            "defense" : 80,
-            "stamina" : 98
-    },
-    {
-            "level" : 2,
-            "name" : "유리 조나탄",
-            "speed" : 63,
-            "goal_decision" : 62,
-            "shoot_power" : 83,
-            "defense" : 65,
-            "stamina" : 97
-    },
-    {
-            "level" : 2,
-            "name" : "문선민",
-            "speed" : 61,
-            "goal_decision" : 77,
-            "shoot_power" : 58,
-            "defense" : 61,
-            "stamina" : 100
-    },
-    {
-            "level" : 2,
-            "name" : "이건희",
-            "speed" : 92,
-            "goal_decision" : 79,
-            "shoot_power" : 80,
-            "defense" : 59,
-            "stamina" : 97
-    },
-    {
-            "level" : 2,
-            "name" : "이호재",
-            "speed" : 81,
-            "goal_decision" : 64,
-            "shoot_power" : 92,
-            "defense" : 60,
-            "stamina" : 92
-    },
-    {
-            "level" : 2,
-            "name" : "정한민",
-            "speed" : 67,
-            "goal_decision" : 74,
-            "shoot_power" : 62,
             "defense" : 62,
-            "stamina" : 83
-    },
-    {
-            "level" : 2,
-            "name" : "여횽규",
-            "speed" : 66,
-            "goal_decision" : 57,
-            "shoot_power" : 77,
-            "defense" : 61,
-            "stamina" : 53
-    },
-    {
-            "level" : 2,
-            "name" : "정재상",
-            "speed" : 61,
-            "goal_decision" : 96,
-            "shoot_power" : 100,
-            "defense" : 92,
-            "stamina" : 98
-    },
-    {
-            "level" : 2,
-            "name" : "진성욱",
-            "speed" : 76,
-            "goal_decision" : 67,
-            "shoot_power" : 99,
-            "defense" : 68,
-            "stamina" : 79
-    },
-
-    {
-            "level" : 3,
-            "name" : "이상헌",
-            "speed" : 82,
-            "goal_decision" : 101,
-            "shoot_power" : 97,
-            "defense" : 62,
-            "stamina" : 76
-    },
-    {
-            "level" : 3,
-            "name" : "무고사",
-            "speed" : 56,
-            "goal_decision" : 93,
-            "shoot_power" : 70,
-            "defense" : 62,
-            "stamina" : 57
-    },
-    {
-            "level" : 3,
-            "name" : "이동경",
-            "speed" : 95,
-            "goal_decision" : 78,
-            "shoot_power" : 53,
-            "defense" : 72,
             "stamina" : 80
     },
     {
-            "level" : 3,
-            "name" : "이승우",
-            "speed" : 98,
-            "goal_decision" : 63,
-            "shoot_power" : 55,
-            "defense" : 88,
-            "stamina" : 97
-    },
-    {
-            "level" : 3,
-            "name" : "정재희",
-            "speed" : 82,
-            "goal_decision" : 70,
-            "shoot_power" : 83,
-            "defense" : 70,
-            "stamina" : 65
-    },
-    {
-            "level" : 3,
-            "name" : "일류첸코",
-            "speed" : 92,
-            "goal_decision" : 99,
-            "shoot_power" : 58,
-            "defense" : 56,
-            "stamina" : 75
-    },
-    {
-            "level" : 3,
-            "name" : "야고",
-            "speed" : 94,
-            "goal_decision" : 54,
-            "shoot_power" : 88,
-            "defense" : 86,
+            "player_id" : 1,
+            "level" : 1,
+            "name" : "무고사",
+            "speed" : 80,
+            "goal_decision" : 90,
+            "shoot_power" : 87,
+            "defense" : 94,
             "stamina" : 86
     },
     {
-            "level" : 3,
-            "name" : "김현욱",
-            "speed" : 102,
-            "goal_decision" : 99,
+            "player_id" : 2,
+            "level" : 1,
+            "name" : "이동경",
+            "speed" : 51,
+            "goal_decision" : 88,
+            "shoot_power" : 78,
+            "defense" : 57,
+            "stamina" : 99
+    },
+    {
+            "player_id" : 3,
+            "level" : 1,
+            "name" : "이승우",
+            "speed" : 75,
+            "goal_decision" : 61,
             "shoot_power" : 68,
-            "defense" : 77,
-            "stamina" : 73
+            "defense" : 61,
+            "stamina" : 56
     },
     {
-            "level" : 3,
-            "name" : "이희균",
-            "speed" : 57,
-            "goal_decision" : 91,
-            "shoot_power" : 60,
-            "defense" : 100,
-            "stamina" : 55
+            "player_id" : 4,
+            "level" : 1,
+            "name" : "정재희",
+            "speed" : 70,
+            "goal_decision" : 83,
+            "shoot_power" : 51,
+            "defense" : 65,
+            "stamina" : 80
     },
     {
-            "level" : 3,
-            "name" : "윌리안",
-            "speed" : 99,
-            "goal_decision" : 58,
-            "shoot_power" : 65,
-            "defense" : 94,
-            "stamina" : 91
-    },
-    {
-            "level" : 3,
-            "name" : "루빅손",
-            "speed" : 60,
-            "goal_decision" : 97,
-            "shoot_power" : 88,
-            "defense" : 90,
-            "stamina" : 77
-    },
-    {
-            "level" : 3,
-            "name" : "엄원상",
-            "speed" : 100,
-            "goal_decision" : 56,
-            "shoot_power" : 85,
-            "defense" : 96,
-            "stamina" : 75
-    },
-    {
-            "level" : 3,
-            "name" : "전병관",
-            "speed" : 92,
-            "goal_decision" : 81,
-            "shoot_power" : 75,
-            "defense" : 58,
-            "stamina" : 95
-    },
-    {
-            "level" : 3,
-            "name" : "주민규",
-            "speed" : 78,
-            "goal_decision" : 65,
-            "shoot_power" : 72,
-            "defense" : 98,
-            "stamina" : 70
-    },
-    {
-            "level" : 3,
-            "name" : "양민혁",
-            "speed" : 68,
-            "goal_decision" : 66,
-            "shoot_power" : 77,
-            "defense" : 87,
-            "stamina" : 66
-    },
-    {
-            "level" : 3,
-            "name" : "가브리엘",
-            "speed" : 57,
-            "goal_decision" : 98,
-            "shoot_power" : 91,
-            "defense" : 58,
-            "stamina" : 90
-    },
-    {
-            "level" : 3,
-            "name" : "박용희",
-            "speed" : 91,
-            "goal_decision" : 60,
-            "shoot_power" : 91,
-            "defense" : 68,
+            "player_id" : 5,
+            "level" : 1,
+            "name" : "일류첸코",
+            "speed" : 73,
+            "goal_decision" : 72,
+            "shoot_power" : 66,
+            "defense" : 66,
             "stamina" : 62
     },
     {
-            "level" : 3,
-            "name" : "마틴 아담",
-            "speed" : 84,
-            "goal_decision" : 89,
-            "shoot_power" : 80,
-            "defense" : 72,
-            "stamina" : 102
-    },
-    {
-            "level" : 3,
-            "name" : "요시노",
-            "speed" : 102,
-            "goal_decision" : 88,
-            "shoot_power" : 67,
-            "defense" : 68,
-            "stamina" : 75
-    },
-    {
-            "level" : 3,
-            "name" : "송민규",
-            "speed" : 75,
-            "goal_decision" : 96,
-            "shoot_power" : 55,
-            "defense" : 56,
-            "stamina" : 58
-    },
-    {
-            "level" : 3,
-            "name" : "제르소",
-            "speed" : 66,
-            "goal_decision" : 97,
-            "shoot_power" : 96,
-            "defense" : 62,
-            "stamina" : 54
-    },
-    {
-            "level" : 3,
-            "name" : "이중민",
-            "speed" : 82,
-            "goal_decision" : 95,
-            "shoot_power" : 99,
-            "defense" : 81,
-            "stamina" : 99
-    },
-    {
-            "level" : 3,
-            "name" : "유리 조나탄",
-            "speed" : 64,
-            "goal_decision" : 63,
-            "shoot_power" : 84,
-            "defense" : 66,
-            "stamina" : 98
-    },
-    {
-            "level" : 3,
-            "name" : "문선민",
-            "speed" : 62,
-            "goal_decision" : 78,
-            "shoot_power" : 59,
-            "defense" : 62,
+            "player_id" : 6,
+            "level" : 1,
+            "name" : "야고",
+            "speed" : 79,
+            "goal_decision" : 54,
+            "shoot_power" : 100,
+            "defense" : 78,
             "stamina" : 101
     },
     {
-            "level" : 3,
-            "name" : "이건희",
-            "speed" : 93,
-            "goal_decision" : 80,
-            "shoot_power" : 81,
-            "defense" : 60,
-            "stamina" : 98
-    },
-    {
-            "level" : 3,
-            "name" : "이호재",
-            "speed" : 82,
-            "goal_decision" : 65,
-            "shoot_power" : 93,
-            "defense" : 61,
-            "stamina" : 93
-    },
-    {
-            "level" : 3,
-            "name" : "정한민",
-            "speed" : 68,
-            "goal_decision" : 75,
-            "shoot_power" : 63,
-            "defense" : 63,
-            "stamina" : 84
-    },
-    {
-            "level" : 3,
-            "name" : "여횽규",
-            "speed" : 67,
-            "goal_decision" : 58,
-            "shoot_power" : 78,
-            "defense" : 62,
-            "stamina" : 54
-    },
-    {
-            "level" : 3,
-            "name" : "정재상",
-            "speed" : 62,
-            "goal_decision" : 97,
-            "shoot_power" : 101,
-            "defense" : 93,
-            "stamina" : 99
-    },
-    {
-            "level" : 3,
-            "name" : "진성욱",
-            "speed" : 77,
-            "goal_decision" : 68,
-            "shoot_power" : 100,
-            "defense" : 69,
-            "stamina" : 80
-    },
-    {
-            "level" : 4,
-            "name" : "이상헌",
-            "speed" : 83,
-            "goal_decision" : 102,
-            "shoot_power" : 98,
-            "defense" : 63,
-            "stamina" : 77
-    },
-    {
-            "level" : 4,
-            "name" : "무고사",
-            "speed" : 57,
-            "goal_decision" : 94,
-            "shoot_power" : 71,
-            "defense" : 63,
-            "stamina" : 58
-    },
-    {
-            "level" : 4,
-            "name" : "이동경",
-            "speed" : 96,
-            "goal_decision" : 79,
-            "shoot_power" : 54,
-            "defense" : 73,
-            "stamina" : 81
-    },
-    {
-            "level" : 4,
-            "name" : "이승우",
-            "speed" : 99,
-            "goal_decision" : 64,
-            "shoot_power" : 56,
-            "defense" : 89,
-            "stamina" : 98
-    },
-    {
-            "level" : 4,
-            "name" : "정재희",
-            "speed" : 83,
-            "goal_decision" : 71,
-            "shoot_power" : 84,
-            "defense" : 71,
-            "stamina" : 66
-    },
-    {
-            "level" : 4,
-            "name" : "일류첸코",
-            "speed" : 93,
-            "goal_decision" : 100,
-            "shoot_power" : 59,
-            "defense" : 57,
-            "stamina" : 76
-    },
-    {
-            "level" : 4,
-            "name" : "야고",
-            "speed" : 95,
-            "goal_decision" : 55,
-            "shoot_power" : 89,
-            "defense" : 87,
-            "stamina" : 87
-    },
-    {
-            "level" : 4,
+            "player_id" : 7,
+            "level" : 1,
             "name" : "김현욱",
-            "speed" : 103,
-            "goal_decision" : 100,
-            "shoot_power" : 69,
-            "defense" : 78,
-            "stamina" : 74
-    },
-    {
-            "level" : 4,
-            "name" : "이희균",
-            "speed" : 58,
-            "goal_decision" : 92,
-            "shoot_power" : 61,
-            "defense" : 101,
-            "stamina" : 56
-    },
-    {
-            "level" : 4,
-            "name" : "윌리안",
-            "speed" : 100,
-            "goal_decision" : 59,
-            "shoot_power" : 66,
-            "defense" : 95,
-            "stamina" : 92
-    },
-    {
-            "level" : 4,
-            "name" : "루빅손",
-            "speed" : 61,
-            "goal_decision" : 98,
-            "shoot_power" : 89,
-            "defense" : 91,
-            "stamina" : 78
-    },
-    {
-            "level" : 4,
-            "name" : "엄원상",
-            "speed" : 101,
-            "goal_decision" : 57,
-            "shoot_power" : 86,
-            "defense" : 97,
-            "stamina" : 76
-    },
-    {
-            "level" : 4,
-            "name" : "전병관",
-            "speed" : 93,
-            "goal_decision" : 82,
-            "shoot_power" : 76,
-            "defense" : 59,
-            "stamina" : 96
-    },
-    {
-            "level" : 4,
-            "name" : "주민규",
-            "speed" : 79,
-            "goal_decision" : 66,
-            "shoot_power" : 73,
-            "defense" : 99,
-            "stamina" : 71
-    },
-    {
-            "level" : 4,
-            "name" : "양민혁",
-            "speed" : 69,
-            "goal_decision" : 67,
-            "shoot_power" : 78,
-            "defense" : 88,
-            "stamina" : 67
-    },
-    {
-            "level" : 4,
-            "name" : "가브리엘",
-            "speed" : 58,
-            "goal_decision" : 99,
-            "shoot_power" : 92,
-            "defense" : 59,
-            "stamina" : 91
-    },
-    {
-            "level" : 4,
-            "name" : "박용희",
-            "speed" : 92,
-            "goal_decision" : 61,
-            "shoot_power" : 92,
-            "defense" : 69,
-            "stamina" : 63
-    },
-    {
-            "level" : 4,
-            "name" : "마틴 아담",
-            "speed" : 85,
-            "goal_decision" : 90,
-            "shoot_power" : 81,
-            "defense" : 73,
-            "stamina" : 103
-    },
-    {
-            "level" : 4,
-            "name" : "요시노",
-            "speed" : 103,
-            "goal_decision" : 89,
-            "shoot_power" : 68,
-            "defense" : 69,
-            "stamina" : 76
-    },
-    {
-            "level" : 4,
-            "name" : "송민규",
-            "speed" : 76,
-            "goal_decision" : 97,
-            "shoot_power" : 56,
-            "defense" : 57,
-            "stamina" : 59
-    },
-    {
-            "level" : 4,
-            "name" : "제르소",
-            "speed" : 67,
-            "goal_decision" : 98,
-            "shoot_power" : 97,
-            "defense" : 63,
-            "stamina" : 55
-    },
-    {
-            "level" : 4,
-            "name" : "이중민",
-            "speed" : 83,
-            "goal_decision" : 96,
-            "shoot_power" : 100,
-            "defense" : 82,
-            "stamina" : 100
-    },
-    {
-            "level" : 4,
-            "name" : "유리 조나탄",
-            "speed" : 65,
-            "goal_decision" : 64,
-            "shoot_power" : 85,
-            "defense" : 67,
-            "stamina" : 99
-    },
-    {
-            "level" : 4,
-            "name" : "문선민",
-            "speed" : 63,
-            "goal_decision" : 79,
-            "shoot_power" : 60,
-            "defense" : 63,
-            "stamina" : 102
-    },
-    {
-            "level" : 4,
-            "name" : "이건희",
-            "speed" : 94,
-            "goal_decision" : 81,
-            "shoot_power" : 82,
-            "defense" : 61,
-            "stamina" : 99
-    },
-    {
-            "level" : 4,
-            "name" : "이호재",
-            "speed" : 83,
-            "goal_decision" : 66,
-            "shoot_power" : 94,
-            "defense" : 62,
-            "stamina" : 94
-    },
-    {
-            "level" : 4,
-            "name" : "정한민",
-            "speed" : 69,
-            "goal_decision" : 76,
-            "shoot_power" : 64,
-            "defense" : 64,
-            "stamina" : 85
-    },
-    {
-            "level" : 4,
-            "name" : "여횽규",
-            "speed" : 68,
-            "goal_decision" : 59,
-            "shoot_power" : 79,
-            "defense" : 63,
-            "stamina" : 55
-    },
-    {
-            "level" : 4,
-            "name" : "정재상",
-            "speed" : 63,
-            "goal_decision" : 98,
-            "shoot_power" : 102,
-            "defense" : 94,
-            "stamina" : 100
-    },
-    {
-            "level" : 4,
-            "name" : "진성욱",
-            "speed" : 78,
-            "goal_decision" : 69,
-            "shoot_power" : 101,
-            "defense" : 70,
-            "stamina" : 81
-    },
-    {
-            "level" : 5,
-            "name" : "이상헌",
-            "speed" : 84,
-            "goal_decision" : 103,
-            "shoot_power" : 99,
-            "defense" : 64,
-            "stamina" : 78
-    },
-    {
-            "level" : 5,
-            "name" : "무고사",
-            "speed" : 58,
-            "goal_decision" : 95,
-            "shoot_power" : 72,
-            "defense" : 64,
-            "stamina" : 59
-    },
-    {
-            "level" : 5,
-            "name" : "이동경",
-            "speed" : 97,
-            "goal_decision" : 80,
-            "shoot_power" : 55,
-            "defense" : 74,
-            "stamina" : 82
-    },
-    {
-            "level" : 5,
-            "name" : "이승우",
-            "speed" : 100,
-            "goal_decision" : 65,
-            "shoot_power" : 57,
-            "defense" : 90,
-            "stamina" : 99
-    },
-    {
-            "level" : 5,
-            "name" : "정재희",
-            "speed" : 84,
-            "goal_decision" : 72,
-            "shoot_power" : 85,
-            "defense" : 72,
-            "stamina" : 67
-    },
-    {
-            "level" : 5,
-            "name" : "일류첸코",
-            "speed" : 94,
-            "goal_decision" : 101,
-            "shoot_power" : 60,
-            "defense" : 58,
-            "stamina" : 77
-    },
-    {
-            "level" : 5,
-            "name" : "야고",
-            "speed" : 96,
-            "goal_decision" : 56,
-            "shoot_power" : 90,
-            "defense" : 88,
-            "stamina" : 88
-    },
-    {
-            "level" : 5,
-            "name" : "김현욱",
-            "speed" : 104,
-            "goal_decision" : 101,
-            "shoot_power" : 70,
-            "defense" : 79,
-            "stamina" : 75
-    },
-    {
-            "level" : 5,
-            "name" : "이희균",
-            "speed" : 59,
-            "goal_decision" : 93,
-            "shoot_power" : 62,
-            "defense" : 102,
-            "stamina" : 57
-    },
-    {
-            "level" : 5,
-            "name" : "윌리안",
-            "speed" : 101,
-            "goal_decision" : 60,
-            "shoot_power" : 67,
-            "defense" : 96,
-            "stamina" : 93
-    },
-    {
-            "level" : 5,
-            "name" : "루빅손",
-            "speed" : 62,
-            "goal_decision" : 99,
-            "shoot_power" : 90,
-            "defense" : 92,
-            "stamina" : 79
-    },
-    {
-            "level" : 5,
-            "name" : "엄원상",
-            "speed" : 102,
-            "goal_decision" : 58,
+            "speed" : 51,
+            "goal_decision" : 87,
             "shoot_power" : 87,
-            "defense" : 98,
-            "stamina" : 77
-    },
-    {
-            "level" : 5,
-            "name" : "전병관",
-            "speed" : 94,
-            "goal_decision" : 83,
-            "shoot_power" : 77,
-            "defense" : 60,
+            "defense" : 62,
             "stamina" : 97
     },
     {
-            "level" : 5,
-            "name" : "주민규",
-            "speed" : 80,
-            "goal_decision" : 67,
-            "shoot_power" : 74,
-            "defense" : 100,
-            "stamina" : 72
-    },
-    {
-            "level" : 5,
-            "name" : "양민혁",
-            "speed" : 70,
-            "goal_decision" : 68,
-            "shoot_power" : 79,
-            "defense" : 89,
-            "stamina" : 68
-    },
-    {
-            "level" : 5,
-            "name" : "가브리엘",
-            "speed" : 59,
-            "goal_decision" : 100,
-            "shoot_power" : 93,
-            "defense" : 60,
-            "stamina" : 92
-    },
-    {
-            "level" : 5,
-            "name" : "박용희",
-            "speed" : 93,
-            "goal_decision" : 62,
-            "shoot_power" : 93,
-            "defense" : 70,
-            "stamina" : 64
-    },
-    {
-            "level" : 5,
-            "name" : "마틴 아담",
-            "speed" : 86,
-            "goal_decision" : 91,
-            "shoot_power" : 82,
-            "defense" : 74,
-            "stamina" : 104
-    },
-    {
-            "level" : 5,
-            "name" : "요시노",
-            "speed" : 104,
-            "goal_decision" : 90,
-            "shoot_power" : 69,
-            "defense" : 70,
-            "stamina" : 77
-    },
-    {
-            "level" : 5,
-            "name" : "송민규",
-            "speed" : 77,
-            "goal_decision" : 98,
-            "shoot_power" : 57,
-            "defense" : 58,
-            "stamina" : 60
-    },
-    {
-            "level" : 5,
-            "name" : "제르소",
-            "speed" : 68,
-            "goal_decision" : 99,
-            "shoot_power" : 98,
-            "defense" : 64,
-            "stamina" : 56
-    },
-    {
-            "level" : 5,
-            "name" : "이중민",
-            "speed" : 84,
-            "goal_decision" : 97,
-            "shoot_power" : 101,
-            "defense" : 83,
-            "stamina" : 101
-    },
-    {
-            "level" : 5,
-            "name" : "유리 조나탄",
-            "speed" : 66,
-            "goal_decision" : 65,
-            "shoot_power" : 86,
-            "defense" : 68,
-            "stamina" : 100
-    },
-    {
-            "level" : 5,
-            "name" : "문선민",
-            "speed" : 64,
-            "goal_decision" : 80,
-            "shoot_power" : 61,
-            "defense" : 64,
-            "stamina" : 103
-    },
-    {
-            "level" : 5,
-            "name" : "이건희",
-            "speed" : 95,
-            "goal_decision" : 82,
-            "shoot_power" : 83,
-            "defense" : 62,
-            "stamina" : 100
-    },
-    {
-            "level" : 5,
-            "name" : "이호재",
-            "speed" : 84,
-            "goal_decision" : 67,
-            "shoot_power" : 95,
-            "defense" : 63,
-            "stamina" : 95
-    },
-    {
-            "level" : 5,
-            "name" : "정한민",
-            "speed" : 70,
-            "goal_decision" : 77,
-            "shoot_power" : 65,
-            "defense" : 65,
-            "stamina" : 86
-    },
-    {
-            "level" : 5,
-            "name" : "여횽규",
-            "speed" : 69,
-            "goal_decision" : 60,
-            "shoot_power" : 80,
-            "defense" : 64,
-            "stamina" : 56
-    },
-    {
-            "level" : 5,
-            "name" : "정재상",
-            "speed" : 64,
-            "goal_decision" : 99,
-            "shoot_power" : 103,
-            "defense" : 95,
-            "stamina" : 101
-    },
-    {
-            "level" : 5,
-            "name" : "진성욱",
-            "speed" : 79,
-            "goal_decision" : 70,
-            "shoot_power" : 102,
-            "defense" : 71,
-            "stamina" : 82
-    },
-
-    {
-            "level" : 6,
-            "name" : "이상헌",
-            "speed" : 85,
-            "goal_decision" : 104,
-            "shoot_power" : 100,
-            "defense" : 65,
-            "stamina" : 79
-    },
-    {
-            "level" : 6,
-            "name" : "무고사",
-            "speed" : 59,
-            "goal_decision" : 96,
-            "shoot_power" : 73,
-            "defense" : 65,
-            "stamina" : 60
-    },
-    {
-            "level" : 6,
-            "name" : "이동경",
-            "speed" : 98,
-            "goal_decision" : 81,
-            "shoot_power" : 56,
-            "defense" : 75,
-            "stamina" : 83
-    },
-    {
-            "level" : 6,
-            "name" : "이승우",
-            "speed" : 101,
-            "goal_decision" : 66,
-            "shoot_power" : 58,
-            "defense" : 91,
-            "stamina" : 100
-    },
-    {
-            "level" : 6,
-            "name" : "정재희",
-            "speed" : 85,
-            "goal_decision" : 73,
-            "shoot_power" : 86,
-            "defense" : 73,
-            "stamina" : 68
-    },
-    {
-            "level" : 6,
-            "name" : "일류첸코",
-            "speed" : 95,
-            "goal_decision" : 102,
-            "shoot_power" : 61,
-            "defense" : 59,
-            "stamina" : 78
-    },
-    {
-            "level" : 6,
-            "name" : "야고",
-            "speed" : 97,
-            "goal_decision" : 57,
-            "shoot_power" : 91,
-            "defense" : 89,
-            "stamina" : 89
-    },
-    {
-            "level" : 6,
-            "name" : "김현욱",
-            "speed" : 105,
-            "goal_decision" : 102,
-            "shoot_power" : 71,
-            "defense" : 80,
-            "stamina" : 76
-    },
-    {
-            "level" : 6,
+            "player_id" : 8,
+            "level" : 1,
             "name" : "이희균",
-            "speed" : 60,
-            "goal_decision" : 94,
-            "shoot_power" : 63,
-            "defense" : 103,
-            "stamina" : 58
-    },
-    {
-            "level" : 6,
-            "name" : "윌리안",
-            "speed" : 102,
-            "goal_decision" : 61,
-            "shoot_power" : 68,
-            "defense" : 97,
-            "stamina" : 94
-    },
-    {
-            "level" : 6,
-            "name" : "루빅손",
-            "speed" : 63,
-            "goal_decision" : 100,
-            "shoot_power" : 91,
-            "defense" : 93,
-            "stamina" : 80
-    },
-    {
-            "level" : 6,
-            "name" : "엄원상",
-            "speed" : 103,
-            "goal_decision" : 59,
-            "shoot_power" : 88,
-            "defense" : 99,
-            "stamina" : 78
-    },
-    {
-            "level" : 6,
-            "name" : "전병관",
-            "speed" : 95,
-            "goal_decision" : 84,
-            "shoot_power" : 78,
-            "defense" : 61,
-            "stamina" : 98
-    },
-    {
-            "level" : 6,
-            "name" : "주민규",
-            "speed" : 81,
-            "goal_decision" : 68,
-            "shoot_power" : 75,
-            "defense" : 101,
-            "stamina" : 73
-    },
-    {
-            "level" : 6,
-            "name" : "양민혁",
-            "speed" : 71,
-            "goal_decision" : 69,
-            "shoot_power" : 80,
-            "defense" : 90,
-            "stamina" : 69
-    },
-    {
-            "level" : 6,
-            "name" : "가브리엘",
-            "speed" : 60,
-            "goal_decision" : 101,
-            "shoot_power" : 94,
-            "defense" : 61,
-            "stamina" : 93
-    },
-    {
-            "level" : 6,
-            "name" : "박용희",
             "speed" : 94,
-            "goal_decision" : 63,
-            "shoot_power" : 94,
-            "defense" : 71,
-            "stamina" : 65
-    },
-    {
-            "level" : 6,
-            "name" : "마틴 아담",
-            "speed" : 87,
-            "goal_decision" : 92,
-            "shoot_power" : 83,
-            "defense" : 75,
-            "stamina" : 105
-    },
-    {
-            "level" : 6,
-            "name" : "요시노",
-            "speed" : 105,
-            "goal_decision" : 91,
-            "shoot_power" : 70,
-            "defense" : 71,
-            "stamina" : 78
-    },
-    {
-            "level" : 6,
-            "name" : "송민규",
-            "speed" : 78,
-            "goal_decision" : 99,
-            "shoot_power" : 58,
-            "defense" : 59,
-            "stamina" : 61
-    },
-    {
-            "level" : 6,
-            "name" : "제르소",
-            "speed" : 69,
-            "goal_decision" : 100,
-            "shoot_power" : 99,
-            "defense" : 65,
-            "stamina" : 57
-    },
-    {
-            "level" : 6,
-            "name" : "이중민",
-            "speed" : 85,
-            "goal_decision" : 98,
-            "shoot_power" : 102,
-            "defense" : 84,
-            "stamina" : 102
-    },
-    {
-            "level" : 6,
-            "name" : "유리 조나탄",
-            "speed" : 67,
-            "goal_decision" : 66,
-            "shoot_power" : 87,
-            "defense" : 69,
-            "stamina" : 101
-    },
-    {
-            "level" : 6,
-            "name" : "문선민",
-            "speed" : 65,
-            "goal_decision" : 81,
-            "shoot_power" : 62,
-            "defense" : 65,
-            "stamina" : 104
-    },
-    {
-            "level" : 6,
-            "name" : "이건희",
-            "speed" : 96,
-            "goal_decision" : 83,
-            "shoot_power" : 84,
-            "defense" : 63,
-            "stamina" : 101
-    },
-    {
-            "level" : 6,
-            "name" : "이호재",
-            "speed" : 85,
-            "goal_decision" : 68,
-            "shoot_power" : 96,
-            "defense" : 64,
-            "stamina" : 96
-    },
-    {
-            "level" : 6,
-            "name" : "정한민",
-            "speed" : 71,
-            "goal_decision" : 78,
-            "shoot_power" : 66,
-            "defense" : 66,
+            "goal_decision" : 62,
+            "shoot_power" : 55,
+            "defense" : 77,
             "stamina" : 87
     },
     {
-            "level" : 6,
-            "name" : "여횽규",
-            "speed" : 70,
+            "player_id" : 9,
+            "level" : 1,
+            "name" : "윌리안",
+            "speed" : 76,
+            "goal_decision" : 52,
+            "shoot_power" : 91,
+            "defense" : 77,
+            "stamina" : 70
+    },
+    {
+            "player_id" : 10,
+            "level" : 1,
+            "name" : "루빅손",
+            "speed" : 94,
+            "goal_decision" : 101,
+            "shoot_power" : 52,
+            "defense" : 97,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 11,
+            "level" : 1,
+            "name" : "엄원상",
+            "speed" : 62,
+            "goal_decision" : 98,
+            "shoot_power" : 95,
+            "defense" : 55,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 12,
+            "level" : 1,
+            "name" : "전병관",
+            "speed" : 101,
+            "goal_decision" : 72,
+            "shoot_power" : 88,
+            "defense" : 86,
+            "stamina" : 69
+    },
+    {
+            "player_id" : 13,
+            "level" : 1,
+            "name" : "주민규",
+            "speed" : 65,
+            "goal_decision" : 101,
+            "shoot_power" : 64,
+            "defense" : 70,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 14,
+            "level" : 1,
+            "name" : "양민혁",
+            "speed" : 84,
+            "goal_decision" : 94,
+            "shoot_power" : 89,
+            "defense" : 68,
+            "stamina" : 63
+    },
+    {
+            "player_id" : 15,
+            "level" : 1,
+            "name" : "가브리엘",
+            "speed" : 99,
+            "goal_decision" : 54,
+            "shoot_power" : 61,
+            "defense" : 71,
+            "stamina" : 91
+    },
+    {
+            "player_id" : 16,
+            "level" : 1,
+            "name" : "박용희",
+            "speed" : 94,
+            "goal_decision" : 56,
+            "shoot_power" : 76,
+            "defense" : 64,
+            "stamina" : 79
+    },
+    {
+            "player_id" : 17,
+            "level" : 1,
+            "name" : "마틴 아담",
+            "speed" : 71,
             "goal_decision" : 61,
-            "shoot_power" : 81,
+            "shoot_power" : 72,
+            "defense" : 55,
+            "stamina" : 69
+    },
+    {
+            "player_id" : 18,
+            "level" : 1,
+            "name" : "요시노",
+            "speed" : 71,
+            "goal_decision" : 63,
+            "shoot_power" : 84,
+            "defense" : 90,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 19,
+            "level" : 1,
+            "name" : "송민규",
+            "speed" : 56,
+            "goal_decision" : 69,
+            "shoot_power" : 86,
+            "defense" : 66,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 20,
+            "level" : 1,
+            "name" : "제르소",
+            "speed" : 70,
+            "goal_decision" : 59,
+            "shoot_power" : 96,
+            "defense" : 99,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 21,
+            "level" : 1,
+            "name" : "이중민",
+            "speed" : 95,
+            "goal_decision" : 56,
+            "shoot_power" : 56,
+            "defense" : 85,
+            "stamina" : 54
+    },
+    {
+            "player_id" : 22,
+            "level" : 1,
+            "name" : "유리 조나탄",
+            "speed" : 74,
+            "goal_decision" : 85,
+            "shoot_power" : 63,
+            "defense" : 57,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 23,
+            "level" : 1,
+            "name" : "문선민",
+            "speed" : 51,
+            "goal_decision" : 71,
+            "shoot_power" : 96,
+            "defense" : 69,
+            "stamina" : 96
+    },
+    {
+            "player_id" : 24,
+            "level" : 1,
+            "name" : "이건희",
+            "speed" : 64,
+            "goal_decision" : 71,
+            "shoot_power" : 75,
+            "defense" : 56,
+            "stamina" : 91
+    },
+    {
+            "player_id" : 25,
+            "level" : 1,
+            "name" : "이호재",
+            "speed" : 91,
+            "goal_decision" : 74,
+            "shoot_power" : 76,
+            "defense" : 51,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 26,
+            "level" : 1,
+            "name" : "정한민",
+            "speed" : 99,
+            "goal_decision" : 76,
+            "shoot_power" : 71,
+            "defense" : 61,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 27,
+            "level" : 1,
+            "name" : "여횽규",
+            "speed" : 87,
+            "goal_decision" : 95,
+            "shoot_power" : 90,
             "defense" : 65,
+            "stamina" : 95
+    },
+    {
+            "player_id" : 28,
+            "level" : 1,
+            "name" : "정재상",
+            "speed" : 74,
+            "goal_decision" : 59,
+            "shoot_power" : 84,
+            "defense" : 56,
+            "stamina" : 96
+    },
+    {
+            "player_id" : 29,
+            "level" : 1,
+            "name" : "진성욱",
+            "speed" : 63,
+            "goal_decision" : 74,
+            "shoot_power" : 56,
+            "defense" : 88,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 0,
+            "level" : 2,
+            "name" : "이상헌",
+            "speed" : 66,
+            "goal_decision" : 53,
+            "shoot_power" : 75,
+            "defense" : 63,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 1,
+            "level" : 2,
+            "name" : "무고사",
+            "speed" : 81,
+            "goal_decision" : 91,
+            "shoot_power" : 88,
+            "defense" : 95,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 2,
+            "level" : 2,
+            "name" : "이동경",
+            "speed" : 52,
+            "goal_decision" : 89,
+            "shoot_power" : 79,
+            "defense" : 58,
+            "stamina" : 100
+    },
+    {
+            "player_id" : 3,
+            "level" : 2,
+            "name" : "이승우",
+            "speed" : 76,
+            "goal_decision" : 62,
+            "shoot_power" : 69,
+            "defense" : 62,
             "stamina" : 57
     },
     {
-            "level" : 6,
-            "name" : "정재상",
-            "speed" : 65,
-            "goal_decision" : 100,
-            "shoot_power" : 104,
-            "defense" : 96,
+            "player_id" : 4,
+            "level" : 2,
+            "name" : "정재희",
+            "speed" : 71,
+            "goal_decision" : 84,
+            "shoot_power" : 52,
+            "defense" : 66,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 5,
+            "level" : 2,
+            "name" : "일류첸코",
+            "speed" : 74,
+            "goal_decision" : 73,
+            "shoot_power" : 67,
+            "defense" : 67,
+            "stamina" : 63
+    },
+    {
+            "player_id" : 6,
+            "level" : 2,
+            "name" : "야고",
+            "speed" : 80,
+            "goal_decision" : 55,
+            "shoot_power" : 101,
+            "defense" : 79,
             "stamina" : 102
     },
     {
-            "level" : 6,
-            "name" : "진성욱",
-            "speed" : 80,
-            "goal_decision" : 71,
-            "shoot_power" : 103,
-            "defense" : 72,
-            "stamina" : 83
+            "player_id" : 7,
+            "level" : 2,
+            "name" : "김현욱",
+            "speed" : 52,
+            "goal_decision" : 88,
+            "shoot_power" : 88,
+            "defense" : 63,
+            "stamina" : 98
     },
-
     {
-            "level" : 7,
-            "name" : "이상헌",
-            "speed" : 86,
-            "goal_decision" : 105,
-            "shoot_power" : 101,
-            "defense" : 66,
+            "player_id" : 8,
+            "level" : 2,
+            "name" : "이희균",
+            "speed" : 95,
+            "goal_decision" : 63,
+            "shoot_power" : 56,
+            "defense" : 78,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 9,
+            "level" : 2,
+            "name" : "윌리안",
+            "speed" : 77,
+            "goal_decision" : 53,
+            "shoot_power" : 92,
+            "defense" : 78,
+            "stamina" : 71
+    },
+    {
+            "player_id" : 10,
+            "level" : 2,
+            "name" : "루빅손",
+            "speed" : 95,
+            "goal_decision" : 102,
+            "shoot_power" : 53,
+            "defense" : 98,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 11,
+            "level" : 2,
+            "name" : "엄원상",
+            "speed" : 63,
+            "goal_decision" : 99,
+            "shoot_power" : 96,
+            "defense" : 56,
+            "stamina" : 75
+    },
+    {
+            "player_id" : 12,
+            "level" : 2,
+            "name" : "전병관",
+            "speed" : 102,
+            "goal_decision" : 73,
+            "shoot_power" : 89,
+            "defense" : 87,
+            "stamina" : 70
+    },
+    {
+            "player_id" : 13,
+            "level" : 2,
+            "name" : "주민규",
+            "speed" : 66,
+            "goal_decision" : 102,
+            "shoot_power" : 65,
+            "defense" : 71,
+            "stamina" : 78
+    },
+    {
+            "player_id" : 14,
+            "level" : 2,
+            "name" : "양민혁",
+            "speed" : 85,
+            "goal_decision" : 95,
+            "shoot_power" : 90,
+            "defense" : 69,
+            "stamina" : 64
+    },
+    {
+            "player_id" : 15,
+            "level" : 2,
+            "name" : "가브리엘",
+            "speed" : 100,
+            "goal_decision" : 55,
+            "shoot_power" : 62,
+            "defense" : 72,
+            "stamina" : 92
+    },
+    {
+            "player_id" : 16,
+            "level" : 2,
+            "name" : "박용희",
+            "speed" : 95,
+            "goal_decision" : 57,
+            "shoot_power" : 77,
+            "defense" : 65,
             "stamina" : 80
     },
     {
-            "level" : 7,
+            "player_id" : 17,
+            "level" : 2,
+            "name" : "마틴 아담",
+            "speed" : 72,
+            "goal_decision" : 62,
+            "shoot_power" : 73,
+            "defense" : 56,
+            "stamina" : 70
+    },
+    {
+            "player_id" : 18,
+            "level" : 2,
+            "name" : "요시노",
+            "speed" : 72,
+            "goal_decision" : 64,
+            "shoot_power" : 85,
+            "defense" : 91,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 19,
+            "level" : 2,
+            "name" : "송민규",
+            "speed" : 57,
+            "goal_decision" : 70,
+            "shoot_power" : 87,
+            "defense" : 67,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 20,
+            "level" : 2,
+            "name" : "제르소",
+            "speed" : 71,
+            "goal_decision" : 60,
+            "shoot_power" : 97,
+            "defense" : 100,
+            "stamina" : 89
+    },
+    {
+            "player_id" : 21,
+            "level" : 2,
+            "name" : "이중민",
+            "speed" : 96,
+            "goal_decision" : 57,
+            "shoot_power" : 57,
+            "defense" : 86,
+            "stamina" : 55
+    },
+    {
+            "player_id" : 22,
+            "level" : 2,
+            "name" : "유리 조나탄",
+            "speed" : 75,
+            "goal_decision" : 86,
+            "shoot_power" : 64,
+            "defense" : 58,
+            "stamina" : 82
+    },
+    {
+            "player_id" : 23,
+            "level" : 2,
+            "name" : "문선민",
+            "speed" : 52,
+            "goal_decision" : 72,
+            "shoot_power" : 97,
+            "defense" : 70,
+            "stamina" : 97
+    },
+    {
+            "player_id" : 24,
+            "level" : 2,
+            "name" : "이건희",
+            "speed" : 65,
+            "goal_decision" : 72,
+            "shoot_power" : 76,
+            "defense" : 57,
+            "stamina" : 92
+    },
+    {
+            "player_id" : 25,
+            "level" : 2,
+            "name" : "이호재",
+            "speed" : 92,
+            "goal_decision" : 75,
+            "shoot_power" : 77,
+            "defense" : 52,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 26,
+            "level" : 2,
+            "name" : "정한민",
+            "speed" : 100,
+            "goal_decision" : 77,
+            "shoot_power" : 72,
+            "defense" : 62,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 27,
+            "level" : 2,
+            "name" : "여횽규",
+            "speed" : 88,
+            "goal_decision" : 96,
+            "shoot_power" : 91,
+            "defense" : 66,
+            "stamina" : 96
+    },
+    {
+            "player_id" : 28,
+            "level" : 2,
+            "name" : "정재상",
+            "speed" : 75,
+            "goal_decision" : 60,
+            "shoot_power" : 85,
+            "defense" : 57,
+            "stamina" : 97
+    },
+    {
+            "player_id" : 29,
+            "level" : 2,
+            "name" : "진성욱",
+            "speed" : 64,
+            "goal_decision" : 75,
+            "shoot_power" : 57,
+            "defense" : 89,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 0,
+            "level" : 3,
+            "name" : "이상헌",
+            "speed" : 67,
+            "goal_decision" : 54,
+            "shoot_power" : 76,
+            "defense" : 64,
+            "stamina" : 82
+    },
+    {
+            "player_id" : 1,
+            "level" : 3,
             "name" : "무고사",
-            "speed" : 60,
-            "goal_decision" : 97,
+            "speed" : 82,
+            "goal_decision" : 92,
+            "shoot_power" : 89,
+            "defense" : 96,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 2,
+            "level" : 3,
+            "name" : "이동경",
+            "speed" : 53,
+            "goal_decision" : 90,
+            "shoot_power" : 80,
+            "defense" : 59,
+            "stamina" : 101
+    },
+    {
+            "player_id" : 3,
+            "level" : 3,
+            "name" : "이승우",
+            "speed" : 77,
+            "goal_decision" : 63,
+            "shoot_power" : 70,
+            "defense" : 63,
+            "stamina" : 58
+    },
+    {
+            "player_id" : 4,
+            "level" : 3,
+            "name" : "정재희",
+            "speed" : 72,
+            "goal_decision" : 85,
+            "shoot_power" : 53,
+            "defense" : 67,
+            "stamina" : 82
+    },
+    {
+            "player_id" : 5,
+            "level" : 3,
+            "name" : "일류첸코",
+            "speed" : 75,
+            "goal_decision" : 74,
+            "shoot_power" : 68,
+            "defense" : 68,
+            "stamina" : 64
+    },
+    {
+            "player_id" : 6,
+            "level" : 3,
+            "name" : "야고",
+            "speed" : 81,
+            "goal_decision" : 56,
+            "shoot_power" : 102,
+            "defense" : 80,
+            "stamina" : 103
+    },
+    {
+            "player_id" : 7,
+            "level" : 3,
+            "name" : "김현욱",
+            "speed" : 53,
+            "goal_decision" : 89,
+            "shoot_power" : 89,
+            "defense" : 64,
+            "stamina" : 99
+    },
+    {
+            "player_id" : 8,
+            "level" : 3,
+            "name" : "이희균",
+            "speed" : 96,
+            "goal_decision" : 64,
+            "shoot_power" : 57,
+            "defense" : 79,
+            "stamina" : 89
+    },
+    {
+            "player_id" : 9,
+            "level" : 3,
+            "name" : "윌리안",
+            "speed" : 78,
+            "goal_decision" : 54,
+            "shoot_power" : 93,
+            "defense" : 79,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 10,
+            "level" : 3,
+            "name" : "루빅손",
+            "speed" : 96,
+            "goal_decision" : 103,
+            "shoot_power" : 54,
+            "defense" : 99,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 11,
+            "level" : 3,
+            "name" : "엄원상",
+            "speed" : 64,
+            "goal_decision" : 100,
+            "shoot_power" : 97,
+            "defense" : 57,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 12,
+            "level" : 3,
+            "name" : "전병관",
+            "speed" : 103,
+            "goal_decision" : 74,
+            "shoot_power" : 90,
+            "defense" : 88,
+            "stamina" : 71
+    },
+    {
+            "player_id" : 13,
+            "level" : 3,
+            "name" : "주민규",
+            "speed" : 67,
+            "goal_decision" : 103,
+            "shoot_power" : 66,
+            "defense" : 72,
+            "stamina" : 79
+    },
+    {
+            "player_id" : 14,
+            "level" : 3,
+            "name" : "양민혁",
+            "speed" : 86,
+            "goal_decision" : 96,
+            "shoot_power" : 91,
+            "defense" : 70,
+            "stamina" : 65
+    },
+    {
+            "player_id" : 15,
+            "level" : 3,
+            "name" : "가브리엘",
+            "speed" : 101,
+            "goal_decision" : 56,
+            "shoot_power" : 63,
+            "defense" : 73,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 16,
+            "level" : 3,
+            "name" : "박용희",
+            "speed" : 96,
+            "goal_decision" : 58,
+            "shoot_power" : 78,
+            "defense" : 66,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 17,
+            "level" : 3,
+            "name" : "마틴 아담",
+            "speed" : 73,
+            "goal_decision" : 63,
             "shoot_power" : 74,
+            "defense" : 57,
+            "stamina" : 71
+    },
+    {
+            "player_id" : 18,
+            "level" : 3,
+            "name" : "요시노",
+            "speed" : 73,
+            "goal_decision" : 65,
+            "shoot_power" : 86,
+            "defense" : 92,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 19,
+            "level" : 3,
+            "name" : "송민규",
+            "speed" : 58,
+            "goal_decision" : 71,
+            "shoot_power" : 88,
+            "defense" : 68,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 20,
+            "level" : 3,
+            "name" : "제르소",
+            "speed" : 72,
+            "goal_decision" : 61,
+            "shoot_power" : 98,
+            "defense" : 101,
+            "stamina" : 90
+    },
+    {
+            "player_id" : 21,
+            "level" : 3,
+            "name" : "이중민",
+            "speed" : 97,
+            "goal_decision" : 58,
+            "shoot_power" : 58,
+            "defense" : 87,
+            "stamina" : 56
+    },
+    {
+            "player_id" : 22,
+            "level" : 3,
+            "name" : "유리 조나탄",
+            "speed" : 76,
+            "goal_decision" : 87,
+            "shoot_power" : 65,
+            "defense" : 59,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 23,
+            "level" : 3,
+            "name" : "문선민",
+            "speed" : 53,
+            "goal_decision" : 73,
+            "shoot_power" : 98,
+            "defense" : 71,
+            "stamina" : 98
+    },
+    {
+            "player_id" : 24,
+            "level" : 3,
+            "name" : "이건희",
+            "speed" : 66,
+            "goal_decision" : 73,
+            "shoot_power" : 77,
+            "defense" : 58,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 25,
+            "level" : 3,
+            "name" : "이호재",
+            "speed" : 93,
+            "goal_decision" : 76,
+            "shoot_power" : 78,
+            "defense" : 53,
+            "stamina" : 85
+    },
+    {
+            "player_id" : 26,
+            "level" : 3,
+            "name" : "정한민",
+            "speed" : 101,
+            "goal_decision" : 78,
+            "shoot_power" : 73,
+            "defense" : 63,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 27,
+            "level" : 3,
+            "name" : "여횽규",
+            "speed" : 89,
+            "goal_decision" : 97,
+            "shoot_power" : 92,
+            "defense" : 67,
+            "stamina" : 97
+    },
+    {
+            "player_id" : 28,
+            "level" : 3,
+            "name" : "정재상",
+            "speed" : 76,
+            "goal_decision" : 61,
+            "shoot_power" : 86,
+            "defense" : 58,
+            "stamina" : 98
+    },
+    {
+            "player_id" : 29,
+            "level" : 3,
+            "name" : "진성욱",
+            "speed" : 65,
+            "goal_decision" : 76,
+            "shoot_power" : 58,
+            "defense" : 90,
+            "stamina" : 85
+    },
+    {
+            "player_id" : 0,
+            "level" : 4,
+            "name" : "이상헌",
+            "speed" : 68,
+            "goal_decision" : 55,
+            "shoot_power" : 77,
+            "defense" : 65,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 1,
+            "level" : 4,
+            "name" : "무고사",
+            "speed" : 83,
+            "goal_decision" : 93,
+            "shoot_power" : 90,
+            "defense" : 97,
+            "stamina" : 89
+    },
+    {
+            "player_id" : 2,
+            "level" : 4,
+            "name" : "이동경",
+            "speed" : 54,
+            "goal_decision" : 91,
+            "shoot_power" : 81,
+            "defense" : 60,
+            "stamina" : 102
+    },
+    {
+            "player_id" : 3,
+            "level" : 4,
+            "name" : "이승우",
+            "speed" : 78,
+            "goal_decision" : 64,
+            "shoot_power" : 71,
+            "defense" : 64,
+            "stamina" : 59
+    },
+    {
+            "player_id" : 4,
+            "level" : 4,
+            "name" : "정재희",
+            "speed" : 73,
+            "goal_decision" : 86,
+            "shoot_power" : 54,
+            "defense" : 68,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 5,
+            "level" : 4,
+            "name" : "일류첸코",
+            "speed" : 76,
+            "goal_decision" : 75,
+            "shoot_power" : 69,
+            "defense" : 69,
+            "stamina" : 65
+    },
+    {
+            "player_id" : 6,
+            "level" : 4,
+            "name" : "야고",
+            "speed" : 82,
+            "goal_decision" : 57,
+            "shoot_power" : 103,
+            "defense" : 81,
+            "stamina" : 104
+    },
+    {
+            "player_id" : 7,
+            "level" : 4,
+            "name" : "김현욱",
+            "speed" : 54,
+            "goal_decision" : 90,
+            "shoot_power" : 90,
+            "defense" : 65,
+            "stamina" : 100
+    },
+    {
+            "player_id" : 8,
+            "level" : 4,
+            "name" : "이희균",
+            "speed" : 97,
+            "goal_decision" : 65,
+            "shoot_power" : 58,
+            "defense" : 80,
+            "stamina" : 90
+    },
+    {
+            "player_id" : 9,
+            "level" : 4,
+            "name" : "윌리안",
+            "speed" : 79,
+            "goal_decision" : 55,
+            "shoot_power" : 94,
+            "defense" : 80,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 10,
+            "level" : 4,
+            "name" : "루빅손",
+            "speed" : 97,
+            "goal_decision" : 104,
+            "shoot_power" : 55,
+            "defense" : 100,
+            "stamina" : 89
+    },
+    {
+            "player_id" : 11,
+            "level" : 4,
+            "name" : "엄원상",
+            "speed" : 65,
+            "goal_decision" : 101,
+            "shoot_power" : 98,
+            "defense" : 58,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 12,
+            "level" : 4,
+            "name" : "전병관",
+            "speed" : 104,
+            "goal_decision" : 75,
+            "shoot_power" : 91,
+            "defense" : 89,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 13,
+            "level" : 4,
+            "name" : "주민규",
+            "speed" : 68,
+            "goal_decision" : 104,
+            "shoot_power" : 67,
+            "defense" : 73,
+            "stamina" : 80
+    },
+    {
+            "player_id" : 14,
+            "level" : 4,
+            "name" : "양민혁",
+            "speed" : 87,
+            "goal_decision" : 97,
+            "shoot_power" : 92,
+            "defense" : 71,
+            "stamina" : 66
+    },
+    {
+            "player_id" : 15,
+            "level" : 4,
+            "name" : "가브리엘",
+            "speed" : 102,
+            "goal_decision" : 57,
+            "shoot_power" : 64,
+            "defense" : 74,
+            "stamina" : 94
+    },
+    {
+            "player_id" : 16,
+            "level" : 4,
+            "name" : "박용희",
+            "speed" : 97,
+            "goal_decision" : 59,
+            "shoot_power" : 79,
+            "defense" : 67,
+            "stamina" : 82
+    },
+    {
+            "player_id" : 17,
+            "level" : 4,
+            "name" : "마틴 아담",
+            "speed" : 74,
+            "goal_decision" : 64,
+            "shoot_power" : 75,
+            "defense" : 58,
+            "stamina" : 72
+    },
+    {
+            "player_id" : 18,
+            "level" : 4,
+            "name" : "요시노",
+            "speed" : 74,
+            "goal_decision" : 66,
+            "shoot_power" : 87,
+            "defense" : 93,
+            "stamina" : 75
+    },
+    {
+            "player_id" : 19,
+            "level" : 4,
+            "name" : "송민규",
+            "speed" : 59,
+            "goal_decision" : 72,
+            "shoot_power" : 89,
+            "defense" : 69,
+            "stamina" : 75
+    },
+    {
+            "player_id" : 20,
+            "level" : 4,
+            "name" : "제르소",
+            "speed" : 73,
+            "goal_decision" : 62,
+            "shoot_power" : 99,
+            "defense" : 102,
+            "stamina" : 91
+    },
+    {
+            "player_id" : 21,
+            "level" : 4,
+            "name" : "이중민",
+            "speed" : 98,
+            "goal_decision" : 59,
+            "shoot_power" : 59,
+            "defense" : 88,
+            "stamina" : 57
+    },
+    {
+            "player_id" : 22,
+            "level" : 4,
+            "name" : "유리 조나탄",
+            "speed" : 77,
+            "goal_decision" : 88,
+            "shoot_power" : 66,
+            "defense" : 60,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 23,
+            "level" : 4,
+            "name" : "문선민",
+            "speed" : 54,
+            "goal_decision" : 74,
+            "shoot_power" : 99,
+            "defense" : 72,
+            "stamina" : 99
+    },
+    {
+            "player_id" : 24,
+            "level" : 4,
+            "name" : "이건희",
+            "speed" : 67,
+            "goal_decision" : 74,
+            "shoot_power" : 78,
+            "defense" : 59,
+            "stamina" : 94
+    },
+    {
+            "player_id" : 25,
+            "level" : 4,
+            "name" : "이호재",
+            "speed" : 94,
+            "goal_decision" : 77,
+            "shoot_power" : 79,
+            "defense" : 54,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 26,
+            "level" : 4,
+            "name" : "정한민",
+            "speed" : 102,
+            "goal_decision" : 79,
+            "shoot_power" : 74,
+            "defense" : 64,
+            "stamina" : 75
+    },
+    {
+            "player_id" : 27,
+            "level" : 4,
+            "name" : "여횽규",
+            "speed" : 90,
+            "goal_decision" : 98,
+            "shoot_power" : 93,
+            "defense" : 68,
+            "stamina" : 98
+    },
+    {
+            "player_id" : 28,
+            "level" : 4,
+            "name" : "정재상",
+            "speed" : 77,
+            "goal_decision" : 62,
+            "shoot_power" : 87,
+            "defense" : 59,
+            "stamina" : 99
+    },
+    {
+            "player_id" : 29,
+            "level" : 4,
+            "name" : "진성욱",
+            "speed" : 66,
+            "goal_decision" : 77,
+            "shoot_power" : 59,
+            "defense" : 91,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 0,
+            "level" : 5,
+            "name" : "이상헌",
+            "speed" : 69,
+            "goal_decision" : 56,
+            "shoot_power" : 78,
+            "defense" : 66,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 1,
+            "level" : 5,
+            "name" : "무고사",
+            "speed" : 84,
+            "goal_decision" : 94,
+            "shoot_power" : 91,
+            "defense" : 98,
+            "stamina" : 90
+    },
+    {
+            "player_id" : 2,
+            "level" : 5,
+            "name" : "이동경",
+            "speed" : 55,
+            "goal_decision" : 92,
+            "shoot_power" : 82,
+            "defense" : 61,
+            "stamina" : 103
+    },
+    {
+            "player_id" : 3,
+            "level" : 5,
+            "name" : "이승우",
+            "speed" : 79,
+            "goal_decision" : 65,
+            "shoot_power" : 72,
+            "defense" : 65,
+            "stamina" : 60
+    },
+    {
+            "player_id" : 4,
+            "level" : 5,
+            "name" : "정재희",
+            "speed" : 74,
+            "goal_decision" : 87,
+            "shoot_power" : 55,
+            "defense" : 69,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 5,
+            "level" : 5,
+            "name" : "일류첸코",
+            "speed" : 77,
+            "goal_decision" : 76,
+            "shoot_power" : 70,
+            "defense" : 70,
+            "stamina" : 66
+    },
+    {
+            "player_id" : 6,
+            "level" : 5,
+            "name" : "야고",
+            "speed" : 83,
+            "goal_decision" : 58,
+            "shoot_power" : 104,
+            "defense" : 82,
+            "stamina" : 105
+    },
+    {
+            "player_id" : 7,
+            "level" : 5,
+            "name" : "김현욱",
+            "speed" : 55,
+            "goal_decision" : 91,
+            "shoot_power" : 91,
+            "defense" : 66,
+            "stamina" : 101
+    },
+    {
+            "player_id" : 8,
+            "level" : 5,
+            "name" : "이희균",
+            "speed" : 98,
+            "goal_decision" : 66,
+            "shoot_power" : 59,
+            "defense" : 81,
+            "stamina" : 91
+    },
+    {
+            "player_id" : 9,
+            "level" : 5,
+            "name" : "윌리안",
+            "speed" : 80,
+            "goal_decision" : 56,
+            "shoot_power" : 95,
+            "defense" : 81,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 10,
+            "level" : 5,
+            "name" : "루빅손",
+            "speed" : 98,
+            "goal_decision" : 105,
+            "shoot_power" : 56,
+            "defense" : 101,
+            "stamina" : 90
+    },
+    {
+            "player_id" : 11,
+            "level" : 5,
+            "name" : "엄원상",
+            "speed" : 66,
+            "goal_decision" : 102,
+            "shoot_power" : 99,
+            "defense" : 59,
+            "stamina" : 78
+    },
+    {
+            "player_id" : 12,
+            "level" : 5,
+            "name" : "전병관",
+            "speed" : 105,
+            "goal_decision" : 76,
+            "shoot_power" : 92,
+            "defense" : 90,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 13,
+            "level" : 5,
+            "name" : "주민규",
+            "speed" : 69,
+            "goal_decision" : 105,
+            "shoot_power" : 68,
+            "defense" : 74,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 14,
+            "level" : 5,
+            "name" : "양민혁",
+            "speed" : 88,
+            "goal_decision" : 98,
+            "shoot_power" : 93,
+            "defense" : 72,
+            "stamina" : 67
+    },
+    {
+            "player_id" : 15,
+            "level" : 5,
+            "name" : "가브리엘",
+            "speed" : 103,
+            "goal_decision" : 58,
+            "shoot_power" : 65,
+            "defense" : 75,
+            "stamina" : 95
+    },
+    {
+            "player_id" : 16,
+            "level" : 5,
+            "name" : "박용희",
+            "speed" : 98,
+            "goal_decision" : 60,
+            "shoot_power" : 80,
+            "defense" : 68,
+            "stamina" : 83
+    },
+    {
+            "player_id" : 17,
+            "level" : 5,
+            "name" : "마틴 아담",
+            "speed" : 75,
+            "goal_decision" : 65,
+            "shoot_power" : 76,
+            "defense" : 59,
+            "stamina" : 73
+    },
+    {
+            "player_id" : 18,
+            "level" : 5,
+            "name" : "요시노",
+            "speed" : 75,
+            "goal_decision" : 67,
+            "shoot_power" : 88,
+            "defense" : 94,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 19,
+            "level" : 5,
+            "name" : "송민규",
+            "speed" : 60,
+            "goal_decision" : 73,
+            "shoot_power" : 90,
+            "defense" : 70,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 20,
+            "level" : 5,
+            "name" : "제르소",
+            "speed" : 74,
+            "goal_decision" : 63,
+            "shoot_power" : 100,
+            "defense" : 103,
+            "stamina" : 92
+    },
+    {
+            "player_id" : 21,
+            "level" : 5,
+            "name" : "이중민",
+            "speed" : 99,
+            "goal_decision" : 60,
+            "shoot_power" : 60,
+            "defense" : 89,
+            "stamina" : 58
+    },
+    {
+            "player_id" : 22,
+            "level" : 5,
+            "name" : "유리 조나탄",
+            "speed" : 78,
+            "goal_decision" : 89,
+            "shoot_power" : 67,
+            "defense" : 61,
+            "stamina" : 85
+    },
+    {
+            "player_id" : 23,
+            "level" : 5,
+            "name" : "문선민",
+            "speed" : 55,
+            "goal_decision" : 75,
+            "shoot_power" : 100,
+            "defense" : 73,
+            "stamina" : 100
+    },
+    {
+            "player_id" : 24,
+            "level" : 5,
+            "name" : "이건희",
+            "speed" : 68,
+            "goal_decision" : 75,
+            "shoot_power" : 79,
+            "defense" : 60,
+            "stamina" : 95
+    },
+    {
+            "player_id" : 25,
+            "level" : 5,
+            "name" : "이호재",
+            "speed" : 95,
+            "goal_decision" : 78,
+            "shoot_power" : 80,
+            "defense" : 55,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 26,
+            "level" : 5,
+            "name" : "정한민",
+            "speed" : 103,
+            "goal_decision" : 80,
+            "shoot_power" : 75,
+            "defense" : 65,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 27,
+            "level" : 5,
+            "name" : "여횽규",
+            "speed" : 91,
+            "goal_decision" : 99,
+            "shoot_power" : 94,
+            "defense" : 69,
+            "stamina" : 99
+    },
+    {
+            "player_id" : 28,
+            "level" : 5,
+            "name" : "정재상",
+            "speed" : 78,
+            "goal_decision" : 63,
+            "shoot_power" : 88,
+            "defense" : 60,
+            "stamina" : 100
+    },
+    {
+            "player_id" : 29,
+            "level" : 5,
+            "name" : "진성욱",
+            "speed" : 67,
+            "goal_decision" : 78,
+            "shoot_power" : 60,
+            "defense" : 92,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 0,
+            "level" : 6,
+            "name" : "이상헌",
+            "speed" : 70,
+            "goal_decision" : 57,
+            "shoot_power" : 79,
+            "defense" : 67,
+            "stamina" : 85
+    },
+    {
+            "player_id" : 1,
+            "level" : 6,
+            "name" : "무고사",
+            "speed" : 85,
+            "goal_decision" : 95,
+            "shoot_power" : 92,
+            "defense" : 99,
+            "stamina" : 91
+    },
+    {
+            "player_id" : 2,
+            "level" : 6,
+            "name" : "이동경",
+            "speed" : 56,
+            "goal_decision" : 93,
+            "shoot_power" : 83,
+            "defense" : 62,
+            "stamina" : 104
+    },
+    {
+            "player_id" : 3,
+            "level" : 6,
+            "name" : "이승우",
+            "speed" : 80,
+            "goal_decision" : 66,
+            "shoot_power" : 73,
             "defense" : 66,
             "stamina" : 61
     },
     {
-            "level" : 7,
-            "name" : "이동경",
-            "speed" : 99,
-            "goal_decision" : 82,
-            "shoot_power" : 57,
-            "defense" : 76,
-            "stamina" : 84
-    },
-    {
-            "level" : 7,
-            "name" : "이승우",
-            "speed" : 102,
-            "goal_decision" : 67,
-            "shoot_power" : 59,
-            "defense" : 92,
-            "stamina" : 101
-    },
-    {
-            "level" : 7,
+            "player_id" : 4,
+            "level" : 6,
             "name" : "정재희",
-            "speed" : 86,
-            "goal_decision" : 74,
-            "shoot_power" : 87,
-            "defense" : 74,
-            "stamina" : 69
+            "speed" : 75,
+            "goal_decision" : 88,
+            "shoot_power" : 56,
+            "defense" : 70,
+            "stamina" : 85
     },
     {
-            "level" : 7,
+            "player_id" : 5,
+            "level" : 6,
             "name" : "일류첸코",
-            "speed" : 96,
-            "goal_decision" : 103,
-            "shoot_power" : 62,
-            "defense" : 60,
-            "stamina" : 79
+            "speed" : 78,
+            "goal_decision" : 77,
+            "shoot_power" : 71,
+            "defense" : 71,
+            "stamina" : 67
     },
     {
-            "level" : 7,
+            "player_id" : 6,
+            "level" : 6,
             "name" : "야고",
-            "speed" : 98,
-            "goal_decision" : 58,
-            "shoot_power" : 92,
-            "defense" : 90,
-            "stamina" : 90
-    },
-    {
-            "level" : 7,
-            "name" : "김현욱",
-            "speed" : 106,
-            "goal_decision" : 103,
-            "shoot_power" : 72,
-            "defense" : 81,
-            "stamina" : 77
-    },
-    {
-            "level" : 7,
-            "name" : "이희균",
-            "speed" : 61,
-            "goal_decision" : 95,
-            "shoot_power" : 64,
-            "defense" : 104,
-            "stamina" : 59
-    },
-    {
-            "level" : 7,
-            "name" : "윌리안",
-            "speed" : 103,
-            "goal_decision" : 62,
-            "shoot_power" : 69,
-            "defense" : 98,
-            "stamina" : 95
-    },
-    {
-            "level" : 7,
-            "name" : "루빅손",
-            "speed" : 64,
-            "goal_decision" : 101,
-            "shoot_power" : 92,
-            "defense" : 94,
-            "stamina" : 81
-    },
-    {
-            "level" : 7,
-            "name" : "엄원상",
-            "speed" : 104,
-            "goal_decision" : 60,
-            "shoot_power" : 89,
-            "defense" : 100,
-            "stamina" : 79
-    },
-    {
-            "level" : 7,
-            "name" : "전병관",
-            "speed" : 96,
-            "goal_decision" : 85,
-            "shoot_power" : 79,
-            "defense" : 62,
-            "stamina" : 99
-    },
-    {
-            "level" : 7,
-            "name" : "주민규",
-            "speed" : 82,
-            "goal_decision" : 69,
-            "shoot_power" : 76,
-            "defense" : 102,
-            "stamina" : 74
-    },
-    {
-            "level" : 7,
-            "name" : "양민혁",
-            "speed" : 72,
-            "goal_decision" : 70,
-            "shoot_power" : 81,
-            "defense" : 91,
-            "stamina" : 70
-    },
-    {
-            "level" : 7,
-            "name" : "가브리엘",
-            "speed" : 61,
-            "goal_decision" : 102,
-            "shoot_power" : 95,
-            "defense" : 62,
-            "stamina" : 94
-    },
-    {
-            "level" : 7,
-            "name" : "박용희",
-            "speed" : 95,
-            "goal_decision" : 64,
-            "shoot_power" : 95,
-            "defense" : 72,
-            "stamina" : 66
-    },
-    {
-            "level" : 7,
-            "name" : "마틴 아담",
-            "speed" : 88,
-            "goal_decision" : 93,
-            "shoot_power" : 84,
-            "defense" : 76,
+            "speed" : 84,
+            "goal_decision" : 59,
+            "shoot_power" : 105,
+            "defense" : 83,
             "stamina" : 106
     },
     {
-            "level" : 7,
-            "name" : "요시노",
-            "speed" : 106,
-            "goal_decision" : 92,
-            "shoot_power" : 71,
-            "defense" : 72,
-            "stamina" : 79
-    },
-    {
-            "level" : 7,
-            "name" : "송민규",
-            "speed" : 79,
-            "goal_decision" : 100,
-            "shoot_power" : 59,
-            "defense" : 60,
-            "stamina" : 62
-    },
-    {
-            "level" : 7,
-            "name" : "제르소",
-            "speed" : 70,
-            "goal_decision" : 101,
-            "shoot_power" : 100,
-            "defense" : 66,
-            "stamina" : 58
-    },
-    {
-            "level" : 7,
-            "name" : "이중민",
-            "speed" : 86,
-            "goal_decision" : 99,
-            "shoot_power" : 103,
-            "defense" : 85,
-            "stamina" : 103
-    },
-    {
-            "level" : 7,
-            "name" : "유리 조나탄",
-            "speed" : 68,
-            "goal_decision" : 67,
-            "shoot_power" : 88,
-            "defense" : 70,
-            "stamina" : 102
-    },
-    {
-            "level" : 7,
-            "name" : "문선민",
-            "speed" : 66,
-            "goal_decision" : 82,
-            "shoot_power" : 63,
-            "defense" : 66,
-            "stamina" : 105
-    },
-    {
-            "level" : 7,
-            "name" : "이건희",
-            "speed" : 97,
-            "goal_decision" : 84,
-            "shoot_power" : 85,
-            "defense" : 64,
-            "stamina" : 102
-    },
-    {
-            "level" : 7,
-            "name" : "이호재",
-            "speed" : 86,
-            "goal_decision" : 69,
-            "shoot_power" : 97,
-            "defense" : 65,
-            "stamina" : 97
-    },
-    {
-            "level" : 7,
-            "name" : "정한민",
-            "speed" : 72,
-            "goal_decision" : 79,
-            "shoot_power" : 67,
-            "defense" : 67,
-            "stamina" : 88
-    },
-    {
-            "level" : 7,
-            "name" : "여횽규",
-            "speed" : 71,
-            "goal_decision" : 62,
-            "shoot_power" : 82,
-            "defense" : 66,
-            "stamina" : 58
-    },
-    {
-            "level" : 7,
-            "name" : "정재상",
-            "speed" : 66,
-            "goal_decision" : 101,
-            "shoot_power" : 105,
-            "defense" : 97,
-            "stamina" : 103
-    },
-    {
-            "level" : 7,
-            "name" : "진성욱",
-            "speed" : 81,
-            "goal_decision" : 72,
-            "shoot_power" : 104,
-            "defense" : 73,
-            "stamina" : 84
-    },
-    {
-            "level" : 8,
-            "name" : "이상헌",
-            "speed" : 87,
-            "goal_decision" : 106,
-            "shoot_power" : 102,
-            "defense" : 67,
-            "stamina" : 81
-    },
-    {
-            "level" : 8,
-            "name" : "무고사",
-            "speed" : 61,
-            "goal_decision" : 98,
-            "shoot_power" : 75,
-            "defense" : 67,
-            "stamina" : 62
-    },
-    {
-            "level" : 8,
-            "name" : "이동경",
-            "speed" : 100,
-            "goal_decision" : 83,
-            "shoot_power" : 58,
-            "defense" : 77,
-            "stamina" : 85
-    },
-    {
-            "level" : 8,
-            "name" : "이승우",
-            "speed" : 103,
-            "goal_decision" : 68,
-            "shoot_power" : 60,
-            "defense" : 93,
-            "stamina" : 102
-    },
-    {
-            "level" : 8,
-            "name" : "정재희",
-            "speed" : 87,
-            "goal_decision" : 75,
-            "shoot_power" : 88,
-            "defense" : 75,
-            "stamina" : 70
-    },
-    {
-            "level" : 8,
-            "name" : "일류첸코",
-            "speed" : 97,
-            "goal_decision" : 104,
-            "shoot_power" : 63,
-            "defense" : 61,
-            "stamina" : 80
-    },
-    {
-            "level" : 8,
-            "name" : "야고",
-            "speed" : 99,
-            "goal_decision" : 59,
-            "shoot_power" : 93,
-            "defense" : 91,
-            "stamina" : 91
-    },
-    {
-            "level" : 8,
+            "player_id" : 7,
+            "level" : 6,
             "name" : "김현욱",
-            "speed" : 107,
-            "goal_decision" : 104,
-            "shoot_power" : 73,
-            "defense" : 82,
-            "stamina" : 78
+            "speed" : 56,
+            "goal_decision" : 92,
+            "shoot_power" : 92,
+            "defense" : 67,
+            "stamina" : 102
     },
     {
-            "level" : 8,
+            "player_id" : 8,
+            "level" : 6,
             "name" : "이희균",
-            "speed" : 62,
-            "goal_decision" : 96,
-            "shoot_power" : 65,
-            "defense" : 105,
-            "stamina" : 60
+            "speed" : 99,
+            "goal_decision" : 67,
+            "shoot_power" : 60,
+            "defense" : 82,
+            "stamina" : 92
     },
     {
-            "level" : 8,
+            "player_id" : 9,
+            "level" : 6,
             "name" : "윌리안",
-            "speed" : 104,
-            "goal_decision" : 63,
-            "shoot_power" : 70,
-            "defense" : 99,
-            "stamina" : 96
-    },
-    {
-            "level" : 8,
-            "name" : "루빅손",
-            "speed" : 65,
-            "goal_decision" : 102,
-            "shoot_power" : 93,
-            "defense" : 95,
-            "stamina" : 82
-    },
-    {
-            "level" : 8,
-            "name" : "엄원상",
-            "speed" : 105,
-            "goal_decision" : 61,
-            "shoot_power" : 90,
-            "defense" : 101,
-            "stamina" : 80
-    },
-    {
-            "level" : 8,
-            "name" : "전병관",
-            "speed" : 97,
-            "goal_decision" : 86,
-            "shoot_power" : 80,
-            "defense" : 63,
-            "stamina" : 100
-    },
-    {
-            "level" : 8,
-            "name" : "주민규",
-            "speed" : 83,
-            "goal_decision" : 70,
-            "shoot_power" : 77,
-            "defense" : 103,
+            "speed" : 81,
+            "goal_decision" : 57,
+            "shoot_power" : 96,
+            "defense" : 82,
             "stamina" : 75
     },
     {
-            "level" : 8,
-            "name" : "양민혁",
-            "speed" : 73,
-            "goal_decision" : 71,
-            "shoot_power" : 82,
-            "defense" : 92,
-            "stamina" : 71
+            "player_id" : 10,
+            "level" : 6,
+            "name" : "루빅손",
+            "speed" : 99,
+            "goal_decision" : 106,
+            "shoot_power" : 57,
+            "defense" : 102,
+            "stamina" : 91
     },
     {
-            "level" : 8,
-            "name" : "가브리엘",
-            "speed" : 62,
+            "player_id" : 11,
+            "level" : 6,
+            "name" : "엄원상",
+            "speed" : 67,
             "goal_decision" : 103,
-            "shoot_power" : 96,
-            "defense" : 63,
-            "stamina" : 95
+            "shoot_power" : 100,
+            "defense" : 60,
+            "stamina" : 79
     },
     {
-            "level" : 8,
-            "name" : "박용희",
-            "speed" : 96,
-            "goal_decision" : 65,
-            "shoot_power" : 96,
-            "defense" : 73,
-            "stamina" : 67
+            "player_id" : 12,
+            "level" : 6,
+            "name" : "전병관",
+            "speed" : 106,
+            "goal_decision" : 77,
+            "shoot_power" : 93,
+            "defense" : 91,
+            "stamina" : 74
     },
     {
-            "level" : 8,
-            "name" : "마틴 아담",
+            "player_id" : 13,
+            "level" : 6,
+            "name" : "주민규",
+            "speed" : 70,
+            "goal_decision" : 106,
+            "shoot_power" : 69,
+            "defense" : 75,
+            "stamina" : 82
+    },
+    {
+            "player_id" : 14,
+            "level" : 6,
+            "name" : "양민혁",
             "speed" : 89,
+            "goal_decision" : 99,
+            "shoot_power" : 94,
+            "defense" : 73,
+            "stamina" : 68
+    },
+    {
+            "player_id" : 15,
+            "level" : 6,
+            "name" : "가브리엘",
+            "speed" : 104,
+            "goal_decision" : 59,
+            "shoot_power" : 66,
+            "defense" : 76,
+            "stamina" : 96
+    },
+    {
+            "player_id" : 16,
+            "level" : 6,
+            "name" : "박용희",
+            "speed" : 99,
+            "goal_decision" : 61,
+            "shoot_power" : 81,
+            "defense" : 69,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 17,
+            "level" : 6,
+            "name" : "마틴 아담",
+            "speed" : 76,
+            "goal_decision" : 66,
+            "shoot_power" : 77,
+            "defense" : 60,
+            "stamina" : 74
+    },
+    {
+            "player_id" : 18,
+            "level" : 6,
+            "name" : "요시노",
+            "speed" : 76,
+            "goal_decision" : 68,
+            "shoot_power" : 89,
+            "defense" : 95,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 19,
+            "level" : 6,
+            "name" : "송민규",
+            "speed" : 61,
+            "goal_decision" : 74,
+            "shoot_power" : 91,
+            "defense" : 71,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 20,
+            "level" : 6,
+            "name" : "제르소",
+            "speed" : 75,
+            "goal_decision" : 64,
+            "shoot_power" : 101,
+            "defense" : 104,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 21,
+            "level" : 6,
+            "name" : "이중민",
+            "speed" : 100,
+            "goal_decision" : 61,
+            "shoot_power" : 61,
+            "defense" : 90,
+            "stamina" : 59
+    },
+    {
+            "player_id" : 22,
+            "level" : 6,
+            "name" : "유리 조나탄",
+            "speed" : 79,
+            "goal_decision" : 90,
+            "shoot_power" : 68,
+            "defense" : 62,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 23,
+            "level" : 6,
+            "name" : "문선민",
+            "speed" : 56,
+            "goal_decision" : 76,
+            "shoot_power" : 101,
+            "defense" : 74,
+            "stamina" : 101
+    },
+    {
+            "player_id" : 24,
+            "level" : 6,
+            "name" : "이건희",
+            "speed" : 69,
+            "goal_decision" : 76,
+            "shoot_power" : 80,
+            "defense" : 61,
+            "stamina" : 96
+    },
+    {
+            "player_id" : 25,
+            "level" : 6,
+            "name" : "이호재",
+            "speed" : 96,
+            "goal_decision" : 79,
+            "shoot_power" : 81,
+            "defense" : 56,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 26,
+            "level" : 6,
+            "name" : "정한민",
+            "speed" : 104,
+            "goal_decision" : 81,
+            "shoot_power" : 76,
+            "defense" : 66,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 27,
+            "level" : 6,
+            "name" : "여횽규",
+            "speed" : 92,
+            "goal_decision" : 100,
+            "shoot_power" : 95,
+            "defense" : 70,
+            "stamina" : 100
+    },
+    {
+            "player_id" : 28,
+            "level" : 6,
+            "name" : "정재상",
+            "speed" : 79,
+            "goal_decision" : 64,
+            "shoot_power" : 89,
+            "defense" : 61,
+            "stamina" : 101
+    },
+    {
+            "player_id" : 29,
+            "level" : 6,
+            "name" : "진성욱",
+            "speed" : 68,
+            "goal_decision" : 79,
+            "shoot_power" : 61,
+            "defense" : 93,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 0,
+            "level" : 7,
+            "name" : "이상헌",
+            "speed" : 71,
+            "goal_decision" : 58,
+            "shoot_power" : 80,
+            "defense" : 68,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 1,
+            "level" : 7,
+            "name" : "무고사",
+            "speed" : 86,
+            "goal_decision" : 96,
+            "shoot_power" : 93,
+            "defense" : 100,
+            "stamina" : 92
+    },
+    {
+            "player_id" : 2,
+            "level" : 7,
+            "name" : "이동경",
+            "speed" : 57,
             "goal_decision" : 94,
-            "shoot_power" : 85,
-            "defense" : 77,
+            "shoot_power" : 84,
+            "defense" : 63,
+            "stamina" : 105
+    },
+    {
+            "player_id" : 3,
+            "level" : 7,
+            "name" : "이승우",
+            "speed" : 81,
+            "goal_decision" : 67,
+            "shoot_power" : 74,
+            "defense" : 67,
+            "stamina" : 62
+    },
+    {
+            "player_id" : 4,
+            "level" : 7,
+            "name" : "정재희",
+            "speed" : 76,
+            "goal_decision" : 89,
+            "shoot_power" : 57,
+            "defense" : 71,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 5,
+            "level" : 7,
+            "name" : "일류첸코",
+            "speed" : 79,
+            "goal_decision" : 78,
+            "shoot_power" : 72,
+            "defense" : 72,
+            "stamina" : 68
+    },
+    {
+            "player_id" : 6,
+            "level" : 7,
+            "name" : "야고",
+            "speed" : 85,
+            "goal_decision" : 60,
+            "shoot_power" : 106,
+            "defense" : 84,
             "stamina" : 107
     },
     {
-            "level" : 8,
-            "name" : "요시노",
-            "speed" : 107,
+            "player_id" : 7,
+            "level" : 7,
+            "name" : "김현욱",
+            "speed" : 57,
             "goal_decision" : 93,
-            "shoot_power" : 72,
-            "defense" : 73,
+            "shoot_power" : 93,
+            "defense" : 68,
+            "stamina" : 103
+    },
+    {
+            "player_id" : 8,
+            "level" : 7,
+            "name" : "이희균",
+            "speed" : 100,
+            "goal_decision" : 68,
+            "shoot_power" : 61,
+            "defense" : 83,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 9,
+            "level" : 7,
+            "name" : "윌리안",
+            "speed" : 82,
+            "goal_decision" : 58,
+            "shoot_power" : 97,
+            "defense" : 83,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 10,
+            "level" : 7,
+            "name" : "루빅손",
+            "speed" : 100,
+            "goal_decision" : 107,
+            "shoot_power" : 58,
+            "defense" : 103,
+            "stamina" : 92
+    },
+    {
+            "player_id" : 11,
+            "level" : 7,
+            "name" : "엄원상",
+            "speed" : 68,
+            "goal_decision" : 104,
+            "shoot_power" : 101,
+            "defense" : 61,
             "stamina" : 80
     },
     {
-            "level" : 8,
-            "name" : "송민규",
-            "speed" : 80,
-            "goal_decision" : 101,
-            "shoot_power" : 60,
-            "defense" : 61,
-            "stamina" : 63
+            "player_id" : 12,
+            "level" : 7,
+            "name" : "전병관",
+            "speed" : 107,
+            "goal_decision" : 78,
+            "shoot_power" : 94,
+            "defense" : 92,
+            "stamina" : 75
     },
     {
-            "level" : 8,
-            "name" : "제르소",
+            "player_id" : 13,
+            "level" : 7,
+            "name" : "주민규",
             "speed" : 71,
-            "goal_decision" : 102,
-            "shoot_power" : 101,
-            "defense" : 67,
-            "stamina" : 59
+            "goal_decision" : 107,
+            "shoot_power" : 70,
+            "defense" : 76,
+            "stamina" : 83
     },
     {
-            "level" : 8,
-            "name" : "이중민",
-            "speed" : 87,
+            "player_id" : 14,
+            "level" : 7,
+            "name" : "양민혁",
+            "speed" : 90,
             "goal_decision" : 100,
-            "shoot_power" : 104,
-            "defense" : 86,
-            "stamina" : 104
+            "shoot_power" : 95,
+            "defense" : 74,
+            "stamina" : 69
     },
     {
-            "level" : 8,
+            "player_id" : 15,
+            "level" : 7,
+            "name" : "가브리엘",
+            "speed" : 105,
+            "goal_decision" : 60,
+            "shoot_power" : 67,
+            "defense" : 77,
+            "stamina" : 97
+    },
+    {
+            "player_id" : 16,
+            "level" : 7,
+            "name" : "박용희",
+            "speed" : 100,
+            "goal_decision" : 62,
+            "shoot_power" : 82,
+            "defense" : 70,
+            "stamina" : 85
+    },
+    {
+            "player_id" : 17,
+            "level" : 7,
+            "name" : "마틴 아담",
+            "speed" : 77,
+            "goal_decision" : 67,
+            "shoot_power" : 78,
+            "defense" : 61,
+            "stamina" : 75
+    },
+    {
+            "player_id" : 18,
+            "level" : 7,
+            "name" : "요시노",
+            "speed" : 77,
+            "goal_decision" : 69,
+            "shoot_power" : 90,
+            "defense" : 96,
+            "stamina" : 78
+    },
+    {
+            "player_id" : 19,
+            "level" : 7,
+            "name" : "송민규",
+            "speed" : 62,
+            "goal_decision" : 75,
+            "shoot_power" : 92,
+            "defense" : 72,
+            "stamina" : 78
+    },
+    {
+            "player_id" : 20,
+            "level" : 7,
+            "name" : "제르소",
+            "speed" : 76,
+            "goal_decision" : 65,
+            "shoot_power" : 102,
+            "defense" : 105,
+            "stamina" : 94
+    },
+    {
+            "player_id" : 21,
+            "level" : 7,
+            "name" : "이중민",
+            "speed" : 101,
+            "goal_decision" : 62,
+            "shoot_power" : 62,
+            "defense" : 91,
+            "stamina" : 60
+    },
+    {
+            "player_id" : 22,
+            "level" : 7,
             "name" : "유리 조나탄",
-            "speed" : 69,
-            "goal_decision" : 68,
-            "shoot_power" : 89,
-            "defense" : 71,
-            "stamina" : 103
+            "speed" : 80,
+            "goal_decision" : 91,
+            "shoot_power" : 69,
+            "defense" : 63,
+            "stamina" : 87
     },
     {
-            "level" : 8,
+            "player_id" : 23,
+            "level" : 7,
             "name" : "문선민",
-            "speed" : 67,
-            "goal_decision" : 83,
-            "shoot_power" : 64,
-            "defense" : 67,
-            "stamina" : 106
+            "speed" : 57,
+            "goal_decision" : 77,
+            "shoot_power" : 102,
+            "defense" : 75,
+            "stamina" : 102
     },
     {
-            "level" : 8,
+            "player_id" : 24,
+            "level" : 7,
             "name" : "이건희",
-            "speed" : 98,
-            "goal_decision" : 85,
-            "shoot_power" : 86,
-            "defense" : 65,
-            "stamina" : 103
+            "speed" : 70,
+            "goal_decision" : 77,
+            "shoot_power" : 81,
+            "defense" : 62,
+            "stamina" : 97
     },
     {
-            "level" : 8,
+            "player_id" : 25,
+            "level" : 7,
             "name" : "이호재",
-            "speed" : 87,
-            "goal_decision" : 70,
-            "shoot_power" : 98,
-            "defense" : 66,
-            "stamina" : 98
-    },
-    {
-            "level" : 8,
-            "name" : "정한민",
-            "speed" : 73,
+            "speed" : 97,
             "goal_decision" : 80,
-            "shoot_power" : 68,
-            "defense" : 68,
+            "shoot_power" : 82,
+            "defense" : 57,
             "stamina" : 89
     },
     {
-            "level" : 8,
-            "name" : "여횽규",
-            "speed" : 72,
-            "goal_decision" : 63,
-            "shoot_power" : 83,
+            "player_id" : 26,
+            "level" : 7,
+            "name" : "정한민",
+            "speed" : 105,
+            "goal_decision" : 82,
+            "shoot_power" : 77,
             "defense" : 67,
-            "stamina" : 59
+            "stamina" : 78
     },
     {
-            "level" : 8,
+            "player_id" : 27,
+            "level" : 7,
+            "name" : "여횽규",
+            "speed" : 93,
+            "goal_decision" : 101,
+            "shoot_power" : 96,
+            "defense" : 71,
+            "stamina" : 101
+    },
+    {
+            "player_id" : 28,
+            "level" : 7,
             "name" : "정재상",
-            "speed" : 67,
-            "goal_decision" : 102,
-            "shoot_power" : 106,
-            "defense" : 98,
+            "speed" : 80,
+            "goal_decision" : 65,
+            "shoot_power" : 90,
+            "defense" : 62,
+            "stamina" : 102
+    },
+    {
+            "player_id" : 29,
+            "level" : 7,
+            "name" : "진성욱",
+            "speed" : 69,
+            "goal_decision" : 80,
+            "shoot_power" : 62,
+            "defense" : 94,
+            "stamina" : 89
+    },
+    {
+            "player_id" : 0,
+            "level" : 8,
+            "name" : "이상헌",
+            "speed" : 72,
+            "goal_decision" : 59,
+            "shoot_power" : 81,
+            "defense" : 69,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 1,
+            "level" : 8,
+            "name" : "무고사",
+            "speed" : 87,
+            "goal_decision" : 97,
+            "shoot_power" : 94,
+            "defense" : 101,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 2,
+            "level" : 8,
+            "name" : "이동경",
+            "speed" : 58,
+            "goal_decision" : 95,
+            "shoot_power" : 85,
+            "defense" : 64,
+            "stamina" : 106
+    },
+    {
+            "player_id" : 3,
+            "level" : 8,
+            "name" : "이승우",
+            "speed" : 82,
+            "goal_decision" : 68,
+            "shoot_power" : 75,
+            "defense" : 68,
+            "stamina" : 63
+    },
+    {
+            "player_id" : 4,
+            "level" : 8,
+            "name" : "정재희",
+            "speed" : 77,
+            "goal_decision" : 90,
+            "shoot_power" : 58,
+            "defense" : 72,
+            "stamina" : 87
+    },
+    {
+            "player_id" : 5,
+            "level" : 8,
+            "name" : "일류첸코",
+            "speed" : 80,
+            "goal_decision" : 79,
+            "shoot_power" : 73,
+            "defense" : 73,
+            "stamina" : 69
+    },
+    {
+            "player_id" : 6,
+            "level" : 8,
+            "name" : "야고",
+            "speed" : 86,
+            "goal_decision" : 61,
+            "shoot_power" : 107,
+            "defense" : 85,
+            "stamina" : 108
+    },
+    {
+            "player_id" : 7,
+            "level" : 8,
+            "name" : "김현욱",
+            "speed" : 58,
+            "goal_decision" : 94,
+            "shoot_power" : 94,
+            "defense" : 69,
             "stamina" : 104
     },
     {
+            "player_id" : 8,
+            "level" : 8,
+            "name" : "이희균",
+            "speed" : 101,
+            "goal_decision" : 69,
+            "shoot_power" : 62,
+            "defense" : 84,
+            "stamina" : 94
+    },
+    {
+            "player_id" : 9,
+            "level" : 8,
+            "name" : "윌리안",
+            "speed" : 83,
+            "goal_decision" : 59,
+            "shoot_power" : 98,
+            "defense" : 84,
+            "stamina" : 77
+    },
+    {
+            "player_id" : 10,
+            "level" : 8,
+            "name" : "루빅손",
+            "speed" : 101,
+            "goal_decision" : 108,
+            "shoot_power" : 59,
+            "defense" : 104,
+            "stamina" : 93
+    },
+    {
+            "player_id" : 11,
+            "level" : 8,
+            "name" : "엄원상",
+            "speed" : 69,
+            "goal_decision" : 105,
+            "shoot_power" : 102,
+            "defense" : 62,
+            "stamina" : 81
+    },
+    {
+            "player_id" : 12,
+            "level" : 8,
+            "name" : "전병관",
+            "speed" : 108,
+            "goal_decision" : 79,
+            "shoot_power" : 95,
+            "defense" : 93,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 13,
+            "level" : 8,
+            "name" : "주민규",
+            "speed" : 72,
+            "goal_decision" : 108,
+            "shoot_power" : 71,
+            "defense" : 77,
+            "stamina" : 84
+    },
+    {
+            "player_id" : 14,
+            "level" : 8,
+            "name" : "양민혁",
+            "speed" : 91,
+            "goal_decision" : 101,
+            "shoot_power" : 96,
+            "defense" : 75,
+            "stamina" : 70
+    },
+    {
+            "player_id" : 15,
+            "level" : 8,
+            "name" : "가브리엘",
+            "speed" : 106,
+            "goal_decision" : 61,
+            "shoot_power" : 68,
+            "defense" : 78,
+            "stamina" : 98
+    },
+    {
+            "player_id" : 16,
+            "level" : 8,
+            "name" : "박용희",
+            "speed" : 101,
+            "goal_decision" : 63,
+            "shoot_power" : 83,
+            "defense" : 71,
+            "stamina" : 86
+    },
+    {
+            "player_id" : 17,
+            "level" : 8,
+            "name" : "마틴 아담",
+            "speed" : 78,
+            "goal_decision" : 68,
+            "shoot_power" : 79,
+            "defense" : 62,
+            "stamina" : 76
+    },
+    {
+            "player_id" : 18,
+            "level" : 8,
+            "name" : "요시노",
+            "speed" : 78,
+            "goal_decision" : 70,
+            "shoot_power" : 91,
+            "defense" : 97,
+            "stamina" : 79
+    },
+    {
+            "player_id" : 19,
+            "level" : 8,
+            "name" : "송민규",
+            "speed" : 63,
+            "goal_decision" : 76,
+            "shoot_power" : 93,
+            "defense" : 73,
+            "stamina" : 79
+    },
+    {
+            "player_id" : 20,
+            "level" : 8,
+            "name" : "제르소",
+            "speed" : 77,
+            "goal_decision" : 66,
+            "shoot_power" : 103,
+            "defense" : 106,
+            "stamina" : 95
+    },
+    {
+            "player_id" : 21,
+            "level" : 8,
+            "name" : "이중민",
+            "speed" : 102,
+            "goal_decision" : 63,
+            "shoot_power" : 63,
+            "defense" : 92,
+            "stamina" : 61
+    },
+    {
+            "player_id" : 22,
+            "level" : 8,
+            "name" : "유리 조나탄",
+            "speed" : 81,
+            "goal_decision" : 92,
+            "shoot_power" : 70,
+            "defense" : 64,
+            "stamina" : 88
+    },
+    {
+            "player_id" : 23,
+            "level" : 8,
+            "name" : "문선민",
+            "speed" : 58,
+            "goal_decision" : 78,
+            "shoot_power" : 103,
+            "defense" : 76,
+            "stamina" : 103
+    },
+    {
+            "player_id" : 24,
+            "level" : 8,
+            "name" : "이건희",
+            "speed" : 71,
+            "goal_decision" : 78,
+            "shoot_power" : 82,
+            "defense" : 63,
+            "stamina" : 98
+    },
+    {
+            "player_id" : 25,
+            "level" : 8,
+            "name" : "이호재",
+            "speed" : 98,
+            "goal_decision" : 81,
+            "shoot_power" : 83,
+            "defense" : 58,
+            "stamina" : 90
+    },
+    {
+            "player_id" : 26,
+            "level" : 8,
+            "name" : "정한민",
+            "speed" : 106,
+            "goal_decision" : 83,
+            "shoot_power" : 78,
+            "defense" : 68,
+            "stamina" : 79
+    },
+    {
+            "player_id" : 27,
+            "level" : 8,
+            "name" : "여횽규",
+            "speed" : 94,
+            "goal_decision" : 102,
+            "shoot_power" : 97,
+            "defense" : 72,
+            "stamina" : 102
+    },
+    {
+            "player_id" : 28,
+            "level" : 8,
+            "name" : "정재상",
+            "speed" : 81,
+            "goal_decision" : 66,
+            "shoot_power" : 91,
+            "defense" : 63,
+            "stamina" : 103
+    },
+    {
+            "player_id" : 29,
             "level" : 8,
             "name" : "진성욱",
-            "speed" : 82,
-            "goal_decision" : 73,
-            "shoot_power" : 105,
-            "defense" : 74,
-            "stamina" : 85
+            "speed" : 70,
+            "goal_decision" : 81,
+            "shoot_power" : 63,
+            "defense" : 95,
+            "stamina" : 90
     }
-]
-}
+]}

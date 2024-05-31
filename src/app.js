@@ -1,6 +1,6 @@
 import express from "express";
 import accountRouter from "./routes/accounts.router.js";
-import playerData from "./routes/player.data.router.js";
+import playerData from "./routes/inventory.router.js";
 import makedata from "./srcipt/makedata.js";
 const app = express();
 const PORT = 3000;
