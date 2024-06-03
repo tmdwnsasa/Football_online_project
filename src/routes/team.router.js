@@ -20,7 +20,7 @@ router.post("/team", authMiddleware, async (req, res, next) => {
       return res.status(400).json({ message: "3명 이상은 배치할 수 없습니다." });
 
     for (const data of teamArr) {
-      if (data.player_id === data.player_id) {
+      if (data.player_id === player_id) {
         return res.status(400).json({ message: "같은 플레이어는 배치될 수 없습니다." });
       }
     }
@@ -33,7 +33,17 @@ router.post("/team", authMiddleware, async (req, res, next) => {
         },
       });
 
-      const data = await tx.player_inventory.delete({
+      const inventoryItem = await tx.player_inventory.findFirst({
+        where: {
+          player_id, 
+          level     
+        },
+        select: {
+          player_inventory_id: true 
+        }
+      });
+
+      const data = await tx.player_inventory.deleteMany({
         where: {
           player_id,
           level,

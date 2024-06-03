@@ -11,7 +11,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
     const { account_id } = req.account;
 
     // 내 계정 찾기
-    const myAccount = await accountPrisma.account.findFirst({
+    const myAccount = await accountPrisma.rank.findFirst({
       where: {
         account_id: account_id,
       },
@@ -19,10 +19,13 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     // 매치 메이킹 로직
     // 내 계정의 점수와 비슷한 상대방 정보
+    let enemyAccount = [];
+    let enemyTeam = [];
+
     while (1) {
-      let similarAccount = await accountPrisma.account.findMany({
+      let similarAccount = await accountPrisma.rank.findMany({
         where: {
-          acount_id: {
+          account_id: {
             not: account_id,
           },
           score: {
@@ -31,42 +34,40 @@ router.get("/match", authMiddleware, async (req, res, next) => {
           },
         },
         select: {
-          acount_id: true,
+          account_id: true,
         },
       });
 
       if (!similarAccount) {
-        similarAccount = await accountPrisma.account.findMany({
+        similarAccount = await accountPrisma.rank.findMany({
           where: {
-            acount_id: {
+            account_id: {
               not: account_id,
             },
           },
           select: {
-            acount_id: true,
+            account_id: true,
           },
         });
       }
 
       const similarArr = similarAccount.map(({ account_id }) => account_id);
+      console.log(similarArr);
       const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
+      console.log(enemyAccountId);
 
       // 상대방 계정 찾기
-      const enemyAccount = await accountPrisma.account.findFirst({
+      enemyAccount = await accountPrisma.account.findFirst({
         where: {
           account_id: enemyAccountId,
         },
       });
 
       // 상대 팀 선수들 정보 가져오기
-      const enemyTeam = await accountPrisma.account_team.findMany({
+      enemyTeam = await accountPrisma.account_team.findMany({
         where: { account_id: enemyAccount.account_id },
         select: { player_id: true },
       });
-
-      if (!enemyTeam.length != 3) {
-        continue;
-      }
 
       if (enemyTeam.length === 3) {
         break;
