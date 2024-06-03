@@ -88,12 +88,10 @@ router.get("/inventory", authMiddleware, async (req, res, next) => {
             name: true,
             level: true,
           },
-          orderBy: {
-            player_id: "asc",
-          },
         }),
       );
     }
+    playerData.sort((a, b) => a.player_id - b.player_id);
     // console.log(array);
     return res.status(200).json({ playerData });
   } catch (err) {
