@@ -52,9 +52,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       }
 
       const similarArr = similarAccount.map(({ account_id }) => account_id);
-      console.log(similarArr);
       const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
-      console.log(enemyAccountId);
 
       // 상대방 계정 찾기
       enemyAccount = await accountPrisma.account.findFirst({
@@ -62,13 +60,17 @@ router.get("/match", authMiddleware, async (req, res, next) => {
           account_id: enemyAccountId,
         },
       });
-
+      
       // 상대 팀 선수들 정보 가져오기
       enemyTeam = await accountPrisma.account_team.findMany({
         where: { account_id: enemyAccount.account_id },
         select: { player_id: true },
       });
 
+      if (enemyTeam.length !== 3) {
+        break;
+      }
+      
       if (enemyTeam.length === 3) {
         break;
       }
@@ -161,7 +163,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
     if (finalScore > 10) {
       const ourGoals = Math.floor(Math.random() * 4) + 2;
       const theirGoals = Math.floor(Math.random() * Math.min(3, ourGoals));
-      result = `승리! 우리팀 ${ourGoals} - ${theirGoals} 상대팀`;
+      result = `승리! [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
       newScore = myScore.score + 10;
 
       await accountPrisma.rank.update({
@@ -188,7 +190,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
     } else if (finalScore < -10) {
       const theirGoals = Math.floor(Math.random() * 4) + 2;
       const ourGoals = Math.floor(Math.random() * Math.min(3, theirGoals));
-      result = `패배... 우리팀 ${ourGoals} - ${theirGoals} 상대팀`;
+      result = `패배... [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
       newScore = myScore.score - 10;
 
       await accountPrisma.rank.update({
@@ -214,7 +216,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       });
     } else {
       const goals = Math.floor(Math.random() * 3) + 1;
-      result = `무승부! 우리팀 ${goals} - ${goals} 상대팀`;
+      result = `무승부! [${req.account.nickname}] ${goals} - ${goals} [${enemyAccount.nickname}]`;
       newScore = myScore.score;
 
       for (const account of updateScore) {
