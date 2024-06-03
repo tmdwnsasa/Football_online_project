@@ -38,7 +38,7 @@ router.post("/accounts/sign-up", async (req, res, next) => {
 
     const vaildNickName = /^[a-z0-9가-힣]+$/;
     if (!vaildNickName.test(nickname)) {
-      return res.status(400).json({ message: "닉네임는 영어와 숫자, 한글만 사용할 수 있습니다." });
+      return res.status(400).json({ message: "닉네임은 영어와 숫자, 한글만 사용할 수 있습니다." });
     }
 
     if (password.length < 6) {
