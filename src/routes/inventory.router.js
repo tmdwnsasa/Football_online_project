@@ -49,8 +49,12 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
         },
       });
     });
-
-    return res.status(201).json({ print });
+    const updateAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
+    return res.status(201).json({ print, message: `보유 캐시 : ${updateAccount.cash}` });
   } catch (err) {
     next(err);
   }
@@ -169,6 +173,11 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
       });
       return upgradePlayer;
     });
+    const updateAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
     const data = await playerPrisma.player.findFirst({
       where: {
         player_id: upgradePlayer.player_id,
@@ -184,7 +193,7 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
         stamina: true,
       },
     });
-    return res.status(201).json({ data });
+    return res.status(201).json({ data, message: `보유 캐시 : ${updateAccount.cash}` });
   } catch (err) {
     next(err);
   }
