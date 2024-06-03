@@ -96,7 +96,7 @@ router.delete("/team", authMiddleware, async (req, res, next) => {
       return res.status(400).json({ message: "팀에 남은 팀원이 없습니다." });
     }
 
-    if (!checkSamePlayer) {
+    if (checkSamePlayer.length === 0) {
       return res.status(400).json({ message: "팀에 해당 플레이어가 없습니다." });
     }
 
