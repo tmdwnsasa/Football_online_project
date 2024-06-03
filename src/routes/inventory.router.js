@@ -32,6 +32,12 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
         account_id: +account_id,
       },
     });
+
+    // 캐시 부족 확인
+    if (myAccount.cash < 5000) {
+      return res.status(400).json({ message: "캐시가 부족합니다." });
+    }
+
     await accountPrisma.$transaction(async (tx) => {
       await tx.account.update({
         where: {
