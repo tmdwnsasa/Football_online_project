@@ -19,6 +19,9 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     // 매치 메이킹 로직
     // 내 계정의 점수와 비슷한 상대방 정보
+    let enemyAccount = [];
+    let enemyTeam = [];
+
     while (1) {
       let similarAccount = await accountPrisma.account.findMany({
         where: {
@@ -52,14 +55,14 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
 
       // 상대방 계정 찾기
-      const enemyAccount = await accountPrisma.account.findFirst({
+      enemyAccount = await accountPrisma.account.findFirst({
         where: {
           account_id: enemyAccountId,
         },
       });
 
       // 상대 팀 선수들 정보 가져오기
-      const enemyTeam = await accountPrisma.account_team.findMany({
+      enemyTeam = await accountPrisma.account_team.findMany({
         where: { account_id: enemyAccount.account_id },
         select: { player_id: true },
       });
