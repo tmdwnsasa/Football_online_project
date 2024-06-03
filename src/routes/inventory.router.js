@@ -152,12 +152,25 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
       });
       return upgradePlayer;
     });
-    return res.status(201).json(upgradePlayer);
+    const data = await playerPrisma.player.findFirst({
+      where: {
+        player_id: upgradePlayer.player_id,
+        level: upgradePlayer.level,
+      },
+      select: {
+        level: true,
+        name: true,
+        speed: true,
+        goal_decision: true,
+        shoot_power: true,
+        defense: true,
+        stamina: true,
+      },
+    });
+    return res.status(201).json({ data });
   } catch (err) {
     next(err);
   }
 });
-
-//스페셜 : 선수 강화 기능
 
 export default router;
