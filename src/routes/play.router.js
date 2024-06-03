@@ -17,6 +17,16 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       },
     });
 
+    // 내 팀 선수들 정보 가져오기
+    const myTeam = await accountPrisma.account_team.findMany({
+      where: { account_id },
+      select: { player_id: true },
+    });
+
+    if (myTeam.length != 3) {
+      return res.status(400).json({ message: "팀 배치 선수가 3명이 아닙니다." });
+    }
+
     // 매치 메이킹 로직
     // 내 계정의 점수와 비슷한 상대방 정보
     let enemyAccount = [];
@@ -60,7 +70,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
           account_id: enemyAccountId,
         },
       });
-      
+
       // 상대 팀 선수들 정보 가져오기
       enemyTeam = await accountPrisma.account_team.findMany({
         where: { account_id: enemyAccount.account_id },
@@ -70,7 +80,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       if (enemyTeam.length !== 3) {
         continue;
       }
-      
+
       if (enemyTeam.length === 3) {
         break;
       }
@@ -85,16 +95,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       stamina: 0.15,
     };
 
-    // 내 팀 선수들 정보 가져오기
-    const myTeam = await accountPrisma.account_team.findMany({
-      where: { account_id },
-      select: { player_id: true },
-    });
-
-    if (myTeam.length != 3) {
-      return res.status(400).json({ message: "팀 배치 선수가 3명이 아닙니다." });
-    }
-
+    // 내 팀의 선수 정보 가져오기
     const myTeamPlayerIds = myTeam.map(({ player_id }) => player_id);
     const myTeamPlayers = await playerPrisma.player.findMany({
       where: { player_id: { in: myTeamPlayerIds } },
@@ -107,6 +108,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       },
     });
 
+    // 내 팀의 총 점수 구하기
     const myTeamtotalScore = myTeamPlayers.reduce((total, player) => {
       const playerScore =
         player.speed * weights.speed +
@@ -117,6 +119,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       return total + playerScore;
     }, 0);
 
+    // 상대 팀의 선수 정보 가져오기
     const enemyTeamPlayerIds = enemyTeam.map(({ player_id }) => player_id);
     const enemyPlayers = await playerPrisma.player.findMany({
       where: { player_id: { in: enemyTeamPlayerIds } },
@@ -129,6 +132,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       },
     });
 
+    // 상대 팀의 총 점수 구하기
     const enemyTeamTotalScore = enemyPlayers.reduce((total, player) => {
       const playerScore =
         player.speed * weights.speed +
@@ -160,7 +164,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     const updateScore = [myScore, enemyScore];
 
-    if (finalScore > 10) {
+    if (finalScore > 5) {
       const ourGoals = Math.floor(Math.random() * 4) + 2;
       const theirGoals = Math.floor(Math.random() * Math.min(3, ourGoals));
       result = `승리! [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
@@ -187,7 +191,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
           score: enemyScore.score - 10,
         },
       });
-    } else if (finalScore < -10) {
+    } else if (finalScore < -5) {
       const theirGoals = Math.floor(Math.random() * 4) + 2;
       const ourGoals = Math.floor(Math.random() * Math.min(3, theirGoals));
       result = `패배... [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
