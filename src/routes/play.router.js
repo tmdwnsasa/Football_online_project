@@ -11,7 +11,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
     const { account_id } = req.account;
 
     // 내 계정 찾기
-    const myAccount = await accountPrisma.account.findFirst({
+    const myAccount = await accountPrisma.rank.findFirst({
       where: {
         account_id: account_id,
       },
@@ -23,9 +23,9 @@ router.get("/match", authMiddleware, async (req, res, next) => {
     let enemyTeam = [];
 
     while (1) {
-      let similarAccount = await accountPrisma.account.findMany({
+      let similarAccount = await accountPrisma.rank.findMany({
         where: {
-          acount_id: {
+          account_id: {
             not: account_id,
           },
           score: {
@@ -34,25 +34,27 @@ router.get("/match", authMiddleware, async (req, res, next) => {
           },
         },
         select: {
-          acount_id: true,
+          account_id: true,
         },
       });
 
       if (!similarAccount) {
-        similarAccount = await accountPrisma.account.findMany({
+        similarAccount = await accountPrisma.rank.findMany({
           where: {
-            acount_id: {
+            account_id: {
               not: account_id,
             },
           },
           select: {
-            acount_id: true,
+            account_id: true,
           },
         });
       }
 
       const similarArr = similarAccount.map(({ account_id }) => account_id);
+      console.log(similarArr);
       const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
+      console.log(enemyAccountId);
 
       // 상대방 계정 찾기
       enemyAccount = await accountPrisma.account.findFirst({
@@ -66,10 +68,6 @@ router.get("/match", authMiddleware, async (req, res, next) => {
         where: { account_id: enemyAccount.account_id },
         select: { player_id: true },
       });
-
-      if (!enemyTeam.length != 3) {
-        continue;
-      }
 
       if (enemyTeam.length === 3) {
         break;

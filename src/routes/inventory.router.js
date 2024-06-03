@@ -7,6 +7,7 @@ const router = express.Router();
 /* 선수 뽑기 API */
 router.post("/gatcha", authMiddleware, async (req, res, next) => {
   try {
+    const { account_id } = req.account;
     const randomId = Math.floor(Math.random() * 30);
     const playerGatcha = await playerPrisma.player.findFirst({
       where: {
@@ -25,15 +26,35 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
     };
 
     // gatcha에서 player_id랑 level을 뽑아서 player_inventory에 넣는다.
-    await accountPrisma.player_inventory.create({
-      data: {
-        account_id: req.account.account_id,
-        player_id: playerGatcha.player_id,
-        level: playerGatcha.level,
+    // 트랜잭션, create-update
+    const myAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
       },
     });
-
-    return res.status(201).json({ print });
+    await accountPrisma.$transaction(async (tx) => {
+      await tx.account.update({
+        where: {
+          account_id: +account_id,
+        },
+        data: {
+          cash: myAccount.cash - 5000,
+        },
+      });
+      await tx.player_inventory.create({
+        data: {
+          account_id: +account_id,
+          player_id: playerGatcha.player_id,
+          level: playerGatcha.level,
+        },
+      });
+    });
+    const updateAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
+    return res.status(201).json({ print, message: `보유 캐시 : ${updateAccount.cash}` });
   } catch (err) {
     next(err);
   }
@@ -67,12 +88,10 @@ router.get("/inventory", authMiddleware, async (req, res, next) => {
             name: true,
             level: true,
           },
-          orderBy: {
-            player_id: "asc",
-          },
         }),
       );
     }
+    playerData.sort((a, b) => a.player_id - b.player_id);
     // console.log(array);
     return res.status(200).json({ playerData });
   } catch (err) {
@@ -152,6 +171,11 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
       });
       return upgradePlayer;
     });
+    const updateAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
     const data = await playerPrisma.player.findFirst({
       where: {
         player_id: upgradePlayer.player_id,
@@ -167,7 +191,7 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
         stamina: true,
       },
     });
-    return res.status(201).json({ data });
+    return res.status(201).json({ data, message: `보유 캐시 : ${updateAccount.cash}` });
   } catch (err) {
     next(err);
   }
