@@ -5,6 +5,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
+/* 축구 게임, 게임 점수 조정 API */
 router.get("/match", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
@@ -16,7 +17,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       },
     });
 
-    // 매치 메이킹 로직 . . .
+    // 매치 메이킹 로직
     // 내 계정의 점수와 비슷한 상대방 정보
     while (1) {
       let similarAccount = await accountPrisma.account.findMany({
@@ -135,7 +136,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       return total + playerScore;
     }, 0);
 
-    // 승패 결정 로직 . . .
+    // 승패 결정 로직
     const scoreDifference = myTeamtotalScore - enemyTeamTotalScore;
     const influence = Math.sqrt(Math.abs(scoreDifference)) * (scoreDifference > 0 ? 1 : -1); // 점수차에 따른 가중치
     const randomFactor = Math.random() * 50 - 25; // -25 ~ 25
