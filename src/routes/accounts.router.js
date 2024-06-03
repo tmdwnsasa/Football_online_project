@@ -31,9 +31,14 @@ router.post("/accounts/sign-up", async (req, res, next) => {
       return res.status(400).json({ message: "이미 존재하는 닉네임입니다." });
     }
 
-    const vaildIdname = /^[a-z0-9]+$/;
-    if (!vaildIdname.test(id)) {
+    const vaildId = /^[a-z0-9]+$/;
+    if (!vaildId.test(id)) {
       return res.status(400).json({ message: "아이디는 영어와 숫자만 사용할 수 있습니다." });
+    }
+
+    const vaildNickName = /^[a-z0-9가-힣]+$/;
+    if (!vaildNickName.test(nickname)) {
+      return res.status(400).json({ message: "아이디는 영어와 숫자, 한글만 사용할 수 있습니다." });
     }
 
     if (password.length < 6) {

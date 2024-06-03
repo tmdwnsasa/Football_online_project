@@ -33,16 +33,6 @@ router.post("/team", authMiddleware, async (req, res, next) => {
         },
       });
 
-      const inventoryItem = await tx.player_inventory.findFirst({
-        where: {
-          player_id, 
-          level     
-        },
-        select: {
-          player_inventory_id: true 
-        }
-      });
-
       const data = await tx.player_inventory.deleteMany({
         where: {
           player_id,
