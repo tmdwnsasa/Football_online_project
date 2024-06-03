@@ -7,6 +7,7 @@ const router = express.Router();
 /* 선수 뽑기 API */
 router.post("/gatcha", authMiddleware, async (req, res, next) => {
   try {
+    const { account_id } = req.account;
     const randomId = Math.floor(Math.random() * 30);
     const playerGatcha = await playerPrisma.player.findFirst({
       where: {
@@ -25,12 +26,28 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
     };
 
     // gatcha에서 player_id랑 level을 뽑아서 player_inventory에 넣는다.
-    await accountPrisma.player_inventory.create({
-      data: {
-        account_id: req.account.account_id,
-        player_id: playerGatcha.player_id,
-        level: playerGatcha.level,
+    // 트랜잭션, create-update
+    const myAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
       },
+    });
+    await accountPrisma.$transaction(async (tx) => {
+      await tx.account.update({
+        where: {
+          account_id: +account_id,
+        },
+        data: {
+          cash: myAccount.cash - 5000,
+        },
+      });
+      await tx.player_inventory.create({
+        data: {
+          account_id: +account_id,
+          player_id: playerGatcha.player_id,
+          level: playerGatcha.level,
+        },
+      });
     });
 
     return res.status(201).json({ print });
