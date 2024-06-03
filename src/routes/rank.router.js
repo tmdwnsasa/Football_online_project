@@ -1,12 +1,10 @@
 import express from "express";
 import { accountPrisma } from "../utils/prisma/index.js";
-import authMiddleware from "../middlewares/auth.middleware.js";
-import ErrorHandlingMiddleware from "../middlewares/error-handling.middleware.js";
 
 const router = express.Router();
 
 /* 랭킹 조회 API */
-router.get("/accounts/rank", async (req, res, next) => {
+router.get("/rank", async (req, res, next) => {
   try {
     // 승률 계산 함수
     const getOdds = (win, draw, lose) => {

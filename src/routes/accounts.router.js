@@ -21,6 +21,16 @@ router.post("/accounts/sign-up", async (req, res, next) => {
       return res.status(400).json({ message: "이미 존재하는 아이디입니다." });
     }
 
+    const isExistNickname = await accountPrisma.account.findFirst({
+      where: {
+        nickname,
+      },
+    });
+
+    if (isExistNickname) {
+      return res.status(400).json({ message: "이미 존재하는 닉네임입니다." });
+    }
+
     const vaildIdname = /^[a-z0-9]+$/;
     if (!vaildIdname.test(id)) {
       return res.status(400).json({ message: "아이디는 영어와 숫자만 사용할 수 있습니다." });
@@ -96,7 +106,7 @@ router.post("/accounts/sign-in", async (req, res, next) => {
 router.patch("/accounts/:id/buy-cash", authMiddleware, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { accountId } = req.user;
+    const { accountId } = req.account;
 
     const isExistAccount = await accountPrisma.account.findFirst({
       where: {
