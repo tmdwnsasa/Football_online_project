@@ -68,7 +68,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       });
 
       if (enemyTeam.length !== 3) {
-        break;
+        continue;
       }
       
       if (enemyTeam.length === 3) {
