@@ -22,9 +22,6 @@ router.get("/rank", async (req, res, next) => {
         draw: true,
         lose: true,
       },
-      orderBy: {
-        score: "desc",
-      },
     });
 
     const response = [];
@@ -49,6 +46,7 @@ router.get("/rank", async (req, res, next) => {
         lose: account.lose,
       });
     }
+    response.sort((a,b) => b.score - a.score || b.odds - a.odds || b.win - a.win);
 
     res.status(200).json(response);
   } catch (error) {
