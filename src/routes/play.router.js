@@ -164,6 +164,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
       await accountPrisma.rank.update({
         where: {
+          rank_id: myScore.rank_id,
           account_id: myAccount.account_id,
         },
         data: {
@@ -174,6 +175,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
       await accountPrisma.rank.update({
         where: {
+          rank_id: enemyScore.rank_id,
           account_id: enemyAccount.account_id,
         },
         data: {
@@ -189,6 +191,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
       await accountPrisma.rank.update({
         where: {
+          rank_id: myScore.rank_id,
           account_id: myAccount.account_id,
         },
         data: {
@@ -199,6 +202,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
       await accountPrisma.rank.update({
         where: {
+          rank_id: enemyScore.rank_id,
           account_id: enemyAccount.account_id,
         },
         data: {
@@ -214,6 +218,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
       for (const account of updateScore) {
         await accountPrisma.rank.update({
           where: {
+            rank_id: account.rank_id,
             account_id: account.account_id,
           },
           data: {
