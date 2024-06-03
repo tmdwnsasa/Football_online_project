@@ -4,7 +4,7 @@ import authMiddleware from "../middlewares/auth.middleware";
 
 const router = express.Router();
 
-//장착이 됬으면 인벤에서 빠진다.
+/* 나만의 팀 꾸리기 API */
 router.post("/team", authMiddleware, async (req, res, next) => {
   try {
     const { player_id, level } = req.body;

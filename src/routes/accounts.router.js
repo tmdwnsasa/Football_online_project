@@ -6,7 +6,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-// 회원가입 API
+/* 회원가입 API */
 router.post("/accounts/sign-up", async (req, res, next) => {
   try {
     const { id, password, passwordConfirm, nickname } = req.body;
@@ -64,7 +64,7 @@ router.post("/accounts/sign-up", async (req, res, next) => {
   }
 });
 
-// 로그인 API
+/* 로그인 API */
 router.post("/accounts/sign-in", async (req, res, next) => {
   try {
     const { id, password } = req.body;
@@ -92,7 +92,7 @@ router.post("/accounts/sign-in", async (req, res, next) => {
   }
 });
 
-// 캐시 구매 API
+/* 캐시 구매 API */
 router.patch("/accounts/:id/buy-cash", authMiddleware, async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -130,59 +130,6 @@ router.patch("/accounts/:id/buy-cash", authMiddleware, async (req, res, next) =>
     });
 
     res.status(200).json(responseCash);
-  } catch (error) {
-    next(error);
-  }
-});
-
-// 승률 계산 함수
-const getOdds = (win, draw, lose) => {
-  let totalGame = win + draw + lose;
-  let winrates = Math.floor(((win + draw * 0.5) / totalGame) * 100);
-  if (totalGame === 0) winrates = 0;
-  return winrates;
-};
-
-// 랭킹 조회 API
-router.get("/accounts/rank", async (req, res, next) => {
-  try {
-    const accountRank = await accountPrisma.rank.findMany({
-      select: {
-        account_id: true,
-        score: true,
-        win: true,
-        draw: true,
-        lose: true,
-      },
-      orderBy: {
-        score: "desc",
-      },
-    });
-
-    const response = [];
-
-    for (const account of accountRank) {
-      const accountId = await accountPrisma.account.findFirst({
-        where: {
-          account_id: account.account_id,
-        },
-        select: {
-          id: true,
-        },
-      });
-
-      const odds = getOdds(account.win, account.draw, account.lose);
-      response.push({
-        id: accountId.id,
-        score: account.score,
-        odds: odds,
-        win: account.win,
-        draw: account.draw,
-        lose: account.lose,
-      });
-    }
-
-    res.status(200).json(response);
   } catch (error) {
     next(error);
   }

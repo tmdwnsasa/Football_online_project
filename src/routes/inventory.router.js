@@ -1,16 +1,16 @@
 import express from "express";
 import { playerPrisma, accountPrisma } from "../utils/prisma/index.js";
-import playerData from "../../resources/player.data.json" assert { type: "json" };
 import authMiddleware from "../middlewares/auth.middleware.js";
+
 const router = express.Router();
 
-/** player.model에서 빼와야 할것. player_id, level : 1,    Math.floor(Math.random()*30)  **/
-
+/* 선수 뽑기 API */
 router.post("/gatcha", authMiddleware, async (req, res, next) => {
   try {
     const randomId = Math.floor(Math.random() * 30);
     const playerGatcha = await playerPrisma.player.findFirst({
       where: {
+        // level이 1인 player를 랜덤으로 선정
         player_id: randomId,
         level: 1,
       },
