@@ -38,7 +38,7 @@ router.post("/accounts/sign-up", async (req, res, next) => {
 
     const vaildNickName = /^[a-z0-9가-힣]+$/;
     if (!vaildNickName.test(nickname)) {
-      return res.status(400).json({ message: "아이디는 영어와 숫자, 한글만 사용할 수 있습니다." });
+      return res.status(400).json({ message: "닉네임은 영어와 숫자, 한글만 사용할 수 있습니다." });
     }
 
     if (password.length < 6) {
@@ -108,34 +108,20 @@ router.post("/accounts/sign-in", async (req, res, next) => {
 });
 
 /* 캐시 구매 API */
-router.patch("/accounts/:id/buy-cash", authMiddleware, async (req, res, next) => {
+router.patch("/accounts/buy-cash", authMiddleware, async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const { accountId } = req.account;
-
-    const isExistAccount = await accountPrisma.account.findFirst({
-      where: {
-        id: id,
-        account_id: accountId,
-      },
-    });
-
-    if (!isExistAccount) {
-      return res.status(404).json({ message: "존재하지 않는 아이디입니다." });
-    }
-
     await accountPrisma.account.update({
       where: {
-        account_id: isExistAccount.account_id,
+        account_id: req.account.account_id,
       },
       data: {
-        cash: isExistAccount.cash + 20000,
+        cash: req.account.cash + 20000,
       },
     });
 
     const responseCash = await accountPrisma.account.findFirst({
       where: {
-        account_id: isExistAccount.account_id,
+        account_id: req.account.account_id,
       },
       select: {
         id: true,
