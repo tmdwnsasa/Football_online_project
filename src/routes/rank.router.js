@@ -32,13 +32,13 @@ router.get("/rank", async (req, res, next) => {
           account_id: account.account_id,
         },
         select: {
-          id: true,
+          nickname: true,
         },
       });
 
       const odds = getOdds(account.win, account.draw, account.lose);
       response.push({
-        id: accountId.id,
+        nickname: accountId.nickname,
         score: account.score,
         odds: odds,
         win: account.win,
