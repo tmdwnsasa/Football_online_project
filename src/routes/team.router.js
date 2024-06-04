@@ -190,4 +190,60 @@ router.delete("/team", authMiddleware, async (req, res, next) => {
   }
 });
 
+// 내 팀의 총파워
+router.get("/teampower/:account_id", async (req, res, next) => {
+  try {
+    const { account_id } = req.params;
+
+    // 가중치 설정
+    const weights = {
+      speed: 0.25,
+      goalDecision: 0.15,
+      shootPower: 0.2,
+      defense: 0.25,
+      stamina: 0.15,
+    };
+
+    // 내 팀 가져오기
+    const myTeam = await accountPrisma.account_team.findMany({
+      where: {
+        account_id: +account_id,
+      },
+      select: {
+        player_id: true,
+      },
+    });
+
+    // 내 팀의 선수 정보 가져오기
+    const myTeamPlayerIds = myTeam.map(({ player_id }) => player_id);
+    const myTeamPlayers = await playerPrisma.player.findMany({
+      where: { player_id: { in: myTeamPlayerIds } },
+      select: {
+        speed: true,
+        goal_decision: true,
+        shoot_power: true,
+        defense: true,
+        stamina: true,
+      },
+    });
+
+    // 내 팀의 총 점수 구하기
+    const myTeamtotalScore = myTeamPlayers.reduce((total, player) => {
+      const playerScore =
+        player.speed * weights.speed +
+        player.goal_decision * weights.goalDecision +
+        player.shoot_power * weights.shootPower +
+        player.defense * weights.defense +
+        player.stamina * weights.stamina;
+      return total + playerScore;
+    }, 0);
+
+    const myPower = Math.floor(myTeamtotalScore);
+
+    return res.status(200).json({ myPower });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;
