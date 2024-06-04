@@ -19,72 +19,89 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     // 내 팀 선수들 정보 가져오기
     const myTeam = await accountPrisma.account_team.findMany({
-      where: { account_id },
-      select: { player_id: true },
+      where: {
+        account_id,
+      },
+      select: {
+        player_id: true,
+      },
     });
 
     if (myTeam.length != 3) {
       return res.status(400).json({ message: "팀 배치 선수가 3명이 아닙니다." });
     }
 
-    // 매치 메이킹 로직
-    // 내 계정의 점수와 비슷한 상대방 정보
-    let enemyAccount = [];
-    let enemyTeam = [];
-
-    while (1) {
-      let similarAccount = await accountPrisma.rank.findMany({
-        where: {
-          account_id: {
-            not: account_id,
-          },
-          score: {
-            lte: Math.floor(myAccount.score * 1.1),
-            gte: Math.floor(myAccount.score * 0.9),
+    // 매치메이킹
+    // 매치 가능하고 3명을 배치한 유저들 정보 가져오기
+    const matchAccountArr = await accountPrisma.account_team.groupBy({
+      by: ["account_id"],
+      _count: {
+        account_id: true,
+      },
+      having: {
+        account_id: {
+          _count: {
+            equals: 3,
           },
         },
-        select: {
-          account_id: true,
+      },
+      select: {
+        account_id: true,
+      },
+    });
+
+    if (matchAccountArr.length === 1) {
+      return res.status(400).json({ message: "상대방이 없습니다." });
+    }
+
+    const matchAccountIdArr = matchAccountArr.map(({ account_id }) => account_id);
+
+    const scoreArr = await accountPrisma.rank.findMany({
+      where: {
+        account_id: {
+          in: matchAccountIdArr,
         },
-      });
+      },
+      select: {
+        score: true,
+        account_id: true,
+      },
+      orderBy: {
+        score: "asc",
+      },
+    });
 
-      if (!similarAccount) {
-        similarAccount = await accountPrisma.rank.findMany({
-          where: {
-            account_id: {
-              not: account_id,
-            },
-          },
-          select: {
-            account_id: true,
-          },
-        });
-      }
+    const enemyAccountArr = [];
 
-      const similarArr = similarAccount.map(({ account_id }) => account_id);
-      const enemyAccountId = similarArr[Math.floor(Math.random() * similarArr.length)];
-
-      // 상대방 계정 찾기
-      enemyAccount = await accountPrisma.account.findFirst({
-        where: {
-          account_id: enemyAccountId,
-        },
-      });
-
-      // 상대 팀 선수들 정보 가져오기
-      enemyTeam = await accountPrisma.account_team.findMany({
-        where: { account_id: enemyAccount.account_id },
-        select: { player_id: true },
-      });
-
-      if (enemyTeam.length !== 3) {
-        continue;
-      }
-
-      if (enemyTeam.length === 3) {
-        break;
+    for (let i = 0; i < scoreArr.length; i++) {
+      if (scoreArr[i].account_id === account_id) {
+        for (let j = i - 1; j >= 0 && j >= i - 3; j--) {
+          enemyAccountArr.push(scoreArr[j].account_id);
+        }
+        for (let j = i + 1; j < scoreArr.length && j <= i + 3; j++) {
+          enemyAccountArr.push(scoreArr[j].account_id);
+        }
       }
     }
+
+    const enemyAccountId = enemyAccountArr[Math.floor(Math.random() * enemyAccountArr.length)];
+
+    // 상대방 계정 찾기
+    const enemyAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: enemyAccountId,
+      },
+    });
+
+    // 상대 팀 선수들 정보 가져오기
+    const enemyTeam = await accountPrisma.account_team.findMany({
+      where: {
+        account_id: enemyAccount.account_id,
+      },
+      select: {
+        player_id: true,
+      },
+    });
 
     // 가중치 설정
     const weights = {
