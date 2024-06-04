@@ -203,4 +203,65 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
   }
 });
 
+// 선수 방출
+router.delete("/release", authMiddleware, async (req, res, next) => {
+  try {
+    const { account_id } = req.account;
+    const { player } = req.body;
+
+    const inventoryId = [];
+
+    for (const { player_id, level } of player) {
+      const isExistPlayer = await accountPrisma.player_inventory.findFirst({
+        where: {
+          account_id: +account_id,
+          player_id: +player_id,
+          level: +level,
+        },
+      });
+
+      if (!isExistPlayer) {
+        return res.status(404).json({ message: "선수 보관함에 해당 선수가 없습니다" });
+      }
+
+      inventoryId.push(isExistPlayer.player_inventory_id);
+    }
+
+    const myAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
+
+    await accountPrisma.$transaction(async (tx) => {
+      for (const { player_id, level } of player) {
+        await tx.player_inventory.delete({
+          where: {
+            player_inventory_id: inventoryId.shift(),
+            account_id: +account_id,
+            player_id: +player_id,
+            level: +level,
+          },
+        });
+      }
+    });
+    await accountPrisma.account.update({
+      where: {
+        account_id: +account_id,
+      },
+      data: {
+        cash: myAccount.cash + 1000 * player.length,
+      },
+    });
+    const updateAccount = await accountPrisma.account.findFirst({
+      where: {
+        account_id: +account_id,
+      },
+    });
+    return res.status(200).json({ message: `보유 캐시 : ${updateAccount.cash}` });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;
