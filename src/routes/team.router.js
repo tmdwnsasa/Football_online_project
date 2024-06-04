@@ -1,21 +1,51 @@
 import express from "express";
-import { accountPrisma } from "../utils/prisma/index.js";
+import { accountPrisma, playerPrisma } from "../utils/prisma/index.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.get("/team/:account_id", async (req, res) => {
-  const account_id = req.params.account_id;
-  const teamArr = await accountPrisma.account_team.findMany({
-    where: {
-      account_id: +account_id,
-    },
-  });
+/* 팀원 확인 API */
+router.get("/team/:account_id", async (req, res, next) => {
+  try {
+    const account_id = req.params.account_id;
 
-  return res.status(200).json({ data: teamArr });
+    const teamArr = await accountPrisma.account_team.findMany({
+      where: {
+        account_id: +account_id,
+      },
+      select: {
+        player_id: true,
+        level: true,
+      },
+    });
+
+    const array = teamArr.map(({ player_id, level }) => [player_id, level]);
+    const myTeam = [];
+
+    for (const [player_id, level] of array) {
+      myTeam.push(
+        await playerPrisma.player.findFirst({
+          where: {
+            player_id: player_id,
+            level: level,
+          },
+          select: {
+            player_id: true,
+            name: true,
+            level: true,
+          },
+        }),
+      );
+    }
+    myTeam.sort((a, b) => a.player_id - b.player_id);
+
+    return res.status(200).json({ myTeam });
+  } catch (err) {
+    next(err);
+  }
 });
 
-//장착이 됬으면 인벤에서 빠진다.
+/* 팀원 배치 API */
 router.post("/team", authMiddleware, async (req, res, next) => {
   try {
     const { player_id, level } = req.body;
@@ -67,12 +97,28 @@ router.post("/team", authMiddleware, async (req, res, next) => {
       return data;
     });
 
-    return res.status(201).json({ print });
+    const playerName = await playerPrisma.player.findFirst({
+      where: {
+        player_id,
+      },
+      select: {
+        name: true,
+      },
+    });
+
+    return res.status(201).json({
+      data: {
+        player_id: print.player_id,
+        level: print.level,
+      },
+      message: `플레이어 [${playerName.name}](이)가 배치되었습니다.`,
+    });
   } catch (err) {
     next(err);
   }
 });
 
+/* 팀원 해제 API */
 router.delete("/team", authMiddleware, async (req, res, next) => {
   try {
     const { player_id, level } = req.body;
@@ -101,7 +147,7 @@ router.delete("/team", authMiddleware, async (req, res, next) => {
     }
 
     const print = await accountPrisma.$transaction(async (tx) => {
-      const print = await tx.account_team.deleteMany({
+      await tx.account_team.deleteMany({
         where: {
           account_id,
           player_id,
@@ -117,10 +163,28 @@ router.delete("/team", authMiddleware, async (req, res, next) => {
         },
       });
 
-      return print;
+      return {
+        player_id,
+        level,
+      };
     });
 
-    return res.status(200).json({ data: print });
+    const playerName = await playerPrisma.player.findFirst({
+      where: {
+        player_id,
+      },
+      select: {
+        name: true,
+      },
+    });
+
+    return res.status(200).json({
+      data: {
+        player_id: print.player_id,
+        level: print.level,
+      },
+      message: `플레이어 [${playerName.name}](이)가 해제되었습니다.`,
+    });
   } catch (err) {
     next(err);
   }
