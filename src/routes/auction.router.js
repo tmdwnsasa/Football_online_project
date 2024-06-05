@@ -40,9 +40,10 @@ router.get("/auction", async (req, res, next) => {
 
     for (let i = 0; i < auctionArr.length; i++) {
       datas.push({
+        auction_id: auctionArr[i].auction_id,
+        name: playerArr[i].name,
         level: auctionArr[i].level,
         cash: auctionArr[i].cash,
-        name: playerArr[i].name,
         speed: playerArr[i].speed,
         goal_decision: playerArr[i].goal_decision,
         shoot_power: playerArr[i].shoot_power,
@@ -58,7 +59,7 @@ router.get("/auction", async (req, res, next) => {
 });
 
 //상품 이름 검색
-router.get("/auction/:name", async (req, res) => {
+router.get("/auction/:name", async (req, res, next) => {
   try {
     const name = req.params.name;
 
@@ -71,6 +72,9 @@ router.get("/auction/:name", async (req, res) => {
         level: true,
       },
     });
+    if (player_name.length === 0) {
+      return res.status(404).json({ message: "존재하지 않는 선수 입니다.." });
+    }
 
     const auctionArr = await playerPrisma.auction.findMany({
       where: {
@@ -108,9 +112,10 @@ router.get("/auction/:name", async (req, res) => {
 
     for (let i = 0; i < auctionArr.length; i++) {
       datas.push({
+        auction_id: auctionArr[i].auction_id,
+        name: playerArr[i].name,
         level: auctionArr[i].level,
         cash: auctionArr[i].cash,
-        name: playerArr[i].name,
         speed: playerArr[i].speed,
         goal_decision: playerArr[i].goal_decision,
         shoot_power: playerArr[i].shoot_power,
@@ -159,7 +164,7 @@ router.post("/auction", authMiddleware, async (req, res, next) => {
         },
       });
 
-      auctionPlayer = await playerPrisma.auction.create({
+      const auctionPlayer = await playerPrisma.auction.create({
         data: {
           player_id,
           level,
@@ -273,11 +278,11 @@ router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, nex
       },
     });
 
-    if (data.account_id !== account_id)
-      return res.status(400).json({ message: "본인 물건이 아니면 취소할 수 없습니다." });
     if (!data) {
       return res.status(404).json({ message: "없는 제품은 취소할 수 없습니다." });
     }
+    if (data.account_id !== account_id)
+      return res.status(400).json({ message: "본인 물건이 아니면 취소할 수 없습니다." });
 
     const auctionPlayer = await accountPrisma.player_inventory.create({
       data: {
