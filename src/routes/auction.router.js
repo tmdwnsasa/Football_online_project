@@ -5,41 +5,49 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 const router = express.Router();
 
 //상품 전체 검색
-router.get("/auction", async (req, res) => {
-  const auctionArr = await playerPrisma.auction.findMany({
-    select: {
-      auction_id: true,
-      player_id: true,
-      level: true,
-      cash: true,
-    },
-  });
-
-  const idArr = auctionArr.map(({ player_id }) => player_id);
-
-  const playerArr = await playerPrisma.player.findMany({
-    where: {
-      player_id: {
-        in: idArr,
+router.get("/auction", async (req, res, next) => {
+  try {
+    const auctionArr = await playerPrisma.auction.findMany({
+      select: {
+        auction_id: true,
+        player_id: true,
+        level: true,
+        cash: true,
       },
-    },
-    select: {
-      name: true,
-      speed: true,
-      goal_decision: true,
-      shoot_power: true,
-      defense: true,
-      stamina: true,
-    },
-  });
+    });
 
-  let datas = [];
+    const idArr = auctionArr.map(({ player_id }) => player_id);
+    const levelArr = auctionArr.map(({ level }) => level);
 
-  for (let i = 0; i < auctionArr.length; i++) {
-    datas.push({ ...auctionArr[i], ...playerArr[i] });
+    const playerArr = await playerPrisma.player.findMany({
+      where: {
+        player_id: {
+          in: idArr,
+        },
+        level: {
+          in: levelArr,
+        },
+      },
+      select: {
+        name: true,
+        speed: true,
+        goal_decision: true,
+        shoot_power: true,
+        defense: true,
+        stamina: true,
+      },
+    });
+
+    let datas = [];
+
+    for (let i = 0; i < auctionArr.length; i++) {
+      datas.push({ ...auctionArr[i], ...playerArr[i] });
+    }
+
+    return res.status(200).json({ datas });
+  } catch (err) {
+    next(err);
   }
-
-  return res.status(200).json({ datas });
 });
 
 //상품 이름 검색
