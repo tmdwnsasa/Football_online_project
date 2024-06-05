@@ -67,8 +67,8 @@ router.post("/team", authMiddleware, async (req, res, next) => {
 
     if (!inven) return res.status(404).json({ message: "없는 플레이어는 배치될 수 없습니다." });
 
-    if (teamArr.length >= 3)
-      return res.status(400).json({ message: "3명 이상은 배치할 수 없습니다." });
+    if (teamArr.length >= 4)
+      return res.status(400).json({ message: "4명 이상은 배치할 수 없습니다." });
 
     for (const data of teamArr) {
       if (data.player_id === player_id) {
