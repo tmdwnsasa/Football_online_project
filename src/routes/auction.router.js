@@ -16,32 +16,39 @@ router.get("/auction", async (req, res, next) => {
       },
     });
 
-    const idArr = auctionArr.map(({ player_id }) => player_id);
-    const levelArr = auctionArr.map(({ level }) => level);
+    const playerArr = [];
 
-    const playerArr = await playerPrisma.player.findMany({
-      where: {
-        player_id: {
-          in: idArr,
+    for (const { player_id, level } of auctionArr) {
+      const playerInfo = await playerPrisma.player.findFirst({
+        where: {
+          player_id: player_id,
+          level: level,
         },
-        level: {
-          in: levelArr,
+        select: {
+          name: true,
+          speed: true,
+          goal_decision: true,
+          shoot_power: true,
+          defense: true,
+          stamina: true,
         },
-      },
-      select: {
-        name: true,
-        speed: true,
-        goal_decision: true,
-        shoot_power: true,
-        defense: true,
-        stamina: true,
-      },
-    });
+      });
+      playerArr.push(playerInfo);
+    }
 
     let datas = [];
 
     for (let i = 0; i < auctionArr.length; i++) {
-      datas.push({ ...auctionArr[i], ...playerArr[i] });
+      datas.push({
+        level: auctionArr[i].level,
+        cash: auctionArr[i].cash,
+        name: playerArr[i].name,
+        speed: playerArr[i].speed,
+        goal_decision: playerArr[i].goal_decision,
+        shoot_power: playerArr[i].shoot_power,
+        defense: playerArr[i].defense,
+        stamina: playerArr[i].stamina,
+      });
     }
 
     return res.status(200).json({ datas });
@@ -52,57 +59,69 @@ router.get("/auction", async (req, res, next) => {
 
 //상품 이름 검색
 router.get("/auction/:name", async (req, res) => {
-  const name = req.params.name;
+  try {
+    const name = req.params.name;
 
-  const player_name = await playerPrisma.player.findMany({
-    where: {
-      name,
-    },
-    select: {
-      player_id: true,
-      level: true,
-    },
-  });
-
-  const auctionArr = await playerPrisma.auction.findMany({
-    where: {
-      player_id: player_name.player_id,
-    },
-    select: {
-      auction_id: true,
-      player_id: true,
-      level: true,
-      cash: true,
-    },
-  });
-
-  const playerArr = [];
-
-  for (const { player_id, level } of auctionArr) {
-    const playerInfo = await playerPrisma.player.findFirst({
+    const player_name = await playerPrisma.player.findMany({
       where: {
-        player_id: player_id,
-        level: level,
+        name,
       },
       select: {
-        name: true,
-        speed: true,
-        goal_decision: true,
-        shoot_power: true,
-        defense: true,
-        stamina: true,
+        player_id: true,
+        level: true,
       },
     });
-    playerArr.push(playerInfo);
+
+    const auctionArr = await playerPrisma.auction.findMany({
+      where: {
+        player_id: player_name[0].player_id,
+      },
+      select: {
+        auction_id: true,
+        player_id: true,
+        level: true,
+        cash: true,
+      },
+    });
+
+    const playerArr = [];
+
+    for (const { player_id, level } of auctionArr) {
+      const playerInfo = await playerPrisma.player.findFirst({
+        where: {
+          player_id: player_id,
+          level: level,
+        },
+        select: {
+          name: true,
+          speed: true,
+          goal_decision: true,
+          shoot_power: true,
+          defense: true,
+          stamina: true,
+        },
+      });
+      playerArr.push(playerInfo);
+    }
+
+    let datas = [];
+
+    for (let i = 0; i < auctionArr.length; i++) {
+      datas.push({
+        level: auctionArr[i].level,
+        cash: auctionArr[i].cash,
+        name: playerArr[i].name,
+        speed: playerArr[i].speed,
+        goal_decision: playerArr[i].goal_decision,
+        shoot_power: playerArr[i].shoot_power,
+        defense: playerArr[i].defense,
+        stamina: playerArr[i].stamina,
+      });
+    }
+    return res.status(200).json({ datas });
+  } catch (err) {
+    next(err);
   }
-
-  let datas = [];
-
-  for (let i = 0; i < auctionArr.length; i++) {
-    datas.push({ ...auctionArr[i], ...playerArr[i] });
-  }
-
-  return res.status(200).json({ datas });
 });
 
 /* 상품 등록 API */
@@ -241,55 +260,55 @@ router.delete("/auction/:auction_id", authMiddleware, async (req, res, next) => 
 
 /* 상품 취소 */
 router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, next) => {
-  const auction_id = +req.params.auction_id;
-  const account_id = req.account.account_id;
+  try {
+    const auction_id = +req.params.auction_id;
+    const account_id = req.account.account_id;
 
-  const data = await playerPrisma.auction.findFirst({
-    where: {
-      auction_id,
-    },
-  });
+    const data = await playerPrisma.auction.findFirst({
+      where: {
+        auction_id,
+      },
+    });
 
-  if (data.account_id !== account_id)
-    return res.status(400).json({ message: "본인 물건이 아니면 취소할 수 없습니다." });
-  if (!data) {
-    return res.status(404).json({ message: "없는 제품은 취소할 수 없습니다." });
+    if (data.account_id !== account_id)
+      return res.status(400).json({ message: "본인 물건이 아니면 취소할 수 없습니다." });
+    if (!data) {
+      return res.status(404).json({ message: "없는 제품은 취소할 수 없습니다." });
+    }
+
+    const auctionPlayer = await accountPrisma.player_inventory.create({
+      data: {
+        player_id: data.player_id,
+        level: data.level,
+        account_id: data.account_id,
+      },
+    });
+
+    await playerPrisma.auction.delete({
+      where: {
+        auction_id,
+      },
+    });
+
+    const playerName = await playerPrisma.player.findFirst({
+      where: {
+        player_id: data.player_id,
+      },
+      select: {
+        name: true,
+      },
+    });
+
+    return res.status(200).json({
+      data: {
+        player_id: auctionPlayer.player_id,
+        level: auctionPlayer.level,
+      },
+      message: `플레이어 [${playerName.name}]을/를 회수하였습니다.`,
+    });
+  } catch (err) {
+    next(err);
   }
-
-  const auctionPlayer = await accountPrisma.player_inventory.create({
-    data: {
-      player_id: data.player_id,
-      level: data.level,
-      account_id: data.account_id,
-    },
-  });
-
-  await playerPrisma.auction.delete({
-    where: {
-      auction_id,
-    },
-  });
-
-  const playerName = await playerPrisma.player.findFirst({
-    where: {
-      player_id: data.player_id,
-    },
-    select: {
-      name: true,
-    },
-  });
-
-  return res.status(200).json({
-    data: {
-      player_id: auctionPlayer.player_id,
-      level: auctionPlayer.level,
-    },
-    message: `플레이어 [${playerName.name}]을/를 회수하였습니다.`,
-  });
 });
 
 export default router;
-
-/////////
-//Insomnia 확인 해야 합니다.
-/////////
