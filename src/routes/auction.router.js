@@ -99,12 +99,19 @@ router.get("/auction/:name", async (req, res) => {
   return res.status(200).json({ datas });
 });
 
-//상품 등록
+/* 상품 등록 API */
 router.post("/auction", authMiddleware, async (req, res, next) => {
   const { player_id, level, cash } = req.body;
   const account_id = req.account.account_id;
 
-  if (!player_id || !level || !cash) {
+  if (
+    // player_id, cash가 0일 경우를 허용
+    player_id === undefined ||
+    player_id === null ||
+    !level ||
+    cash === undefined ||
+    cash === null
+  ) {
     return res.status(400).json({ message: "값이 충분히 입력되지 않았습니다." });
   }
 
@@ -114,6 +121,10 @@ router.post("/auction", authMiddleware, async (req, res, next) => {
       level,
     },
   });
+
+  if (!data) {
+    return res.status(404).json({ message: "선수 인벤토리에 해당 선수가 없습니다." });
+  }
 
   await accountPrisma.player_inventory.delete({
     where: {
