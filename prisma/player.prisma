@@ -15,6 +15,16 @@ datasource db {
   url      = env("PLAYER_DATABASE_URL")
 }
 
+model auction{
+  auction_id        Int         @id @default(autoincrement()) @map("auction_id")
+  player_id         Int         @map("player_id")
+  level             Int         @map("level")
+  account_id        Int         @map("account_id")
+  cash              Int         @map("cash")
+
+  @@map("auction")
+}
+
 model player{
   player_id         Int         @map("player_id")
   level             Int         @map("level")
