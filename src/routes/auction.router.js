@@ -241,12 +241,12 @@ router.delete("/auction/:auction_id", authMiddleware, async (req, res, next) => 
   }
 });
 
-//상품 취소
+/* 상품 취소 */
 router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, next) => {
   const auction_id = +req.params.auction_id;
   const account_id = req.account.account_id;
 
-  const data = await accountPrisma.auction.findFirst({
+  const data = await playerPrisma.auction.findFirst({
     where: {
       auction_id,
     },
@@ -260,19 +260,34 @@ router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, nex
 
   const auctionPlayer = await accountPrisma.player_inventory.create({
     data: {
-      player_id,
-      level,
-      account_id,
+      player_id: data.player_id,
+      level: data.level,
+      account_id: data.account_id,
     },
   });
 
-  await accountPrisma.auction.delete({
+  await playerPrisma.auction.delete({
     where: {
       auction_id,
     },
   });
 
-  return res.status(200).json({ auctionPlayer });
+  const playerName = await playerPrisma.player.findFirst({
+    where: {
+      player_id: data.player_id,
+    },
+    select: {
+      name: true,
+    },
+  });
+
+  return res.status(200).json({
+    data: {
+      player_id: auctionPlayer.player_id,
+      level: auctionPlayer.level,
+    },
+    message: `플레이어 [${playerName.name}]을/를 회수하였습니다.`,
+  });
 });
 
 export default router;
