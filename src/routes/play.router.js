@@ -182,77 +182,79 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     const updateScore = [myScore, enemyScore];
 
-    if (finalScore > 5) {
-      const ourGoals = Math.floor(Math.random() * 4) + 2;
-      const theirGoals = Math.floor(Math.random() * Math.min(3, ourGoals));
-      result = `승리! [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
-      newScore = myScore.score + 10;
+    await accountPrisma.$transaction(async (tx) => {
+      if (finalScore > 5) {
+        const ourGoals = Math.floor(Math.random() * 4) + 2;
+        const theirGoals = Math.floor(Math.random() * Math.min(3, ourGoals));
+        result = `승리! [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
+        newScore = myScore.score + 10;
 
-      await accountPrisma.rank.update({
-        where: {
-          rank_id: myScore.rank_id,
-          account_id: myAccount.account_id,
-        },
-        data: {
-          win: myScore.win + 1,
-          score: myScore.score + 10,
-        },
-      });
-
-      await accountPrisma.rank.update({
-        where: {
-          rank_id: enemyScore.rank_id,
-          account_id: enemyAccount.account_id,
-        },
-        data: {
-          lose: enemyScore.lose + 1,
-          score: enemyScore.score - 10,
-        },
-      });
-    } else if (finalScore < -5) {
-      const theirGoals = Math.floor(Math.random() * 4) + 2;
-      const ourGoals = Math.floor(Math.random() * Math.min(3, theirGoals));
-      result = `패배... [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
-      newScore = myScore.score - 10;
-
-      await accountPrisma.rank.update({
-        where: {
-          rank_id: myScore.rank_id,
-          account_id: myAccount.account_id,
-        },
-        data: {
-          lose: myScore.lose + 1,
-          score: myScore.score - 10,
-        },
-      });
-
-      await accountPrisma.rank.update({
-        where: {
-          rank_id: enemyScore.rank_id,
-          account_id: enemyAccount.account_id,
-        },
-        data: {
-          win: enemyScore.win + 1,
-          score: enemyScore.score + 10,
-        },
-      });
-    } else {
-      const goals = Math.floor(Math.random() * 3) + 1;
-      result = `무승부! [${req.account.nickname}] ${goals} - ${goals} [${enemyAccount.nickname}]`;
-      newScore = myScore.score;
-
-      for (const account of updateScore) {
-        await accountPrisma.rank.update({
+        await tx.rank.update({
           where: {
-            rank_id: account.rank_id,
-            account_id: account.account_id,
+            rank_id: myScore.rank_id,
+            account_id: myAccount.account_id,
           },
           data: {
-            draw: account.draw + 1,
+            win: myScore.win + 1,
+            score: myScore.score + 10,
           },
         });
+
+        await tx.rank.update({
+          where: {
+            rank_id: enemyScore.rank_id,
+            account_id: enemyAccount.account_id,
+          },
+          data: {
+            lose: enemyScore.lose + 1,
+            score: enemyScore.score - 10,
+          },
+        });
+      } else if (finalScore < -5) {
+        const theirGoals = Math.floor(Math.random() * 4) + 2;
+        const ourGoals = Math.floor(Math.random() * Math.min(3, theirGoals));
+        result = `패배... [${req.account.nickname}] ${ourGoals} - ${theirGoals} [${enemyAccount.nickname}]`;
+        newScore = myScore.score - 10;
+
+        await tx.rank.update({
+          where: {
+            rank_id: myScore.rank_id,
+            account_id: myAccount.account_id,
+          },
+          data: {
+            lose: myScore.lose + 1,
+            score: myScore.score - 10,
+          },
+        });
+
+        await tx.rank.update({
+          where: {
+            rank_id: enemyScore.rank_id,
+            account_id: enemyAccount.account_id,
+          },
+          data: {
+            win: enemyScore.win + 1,
+            score: enemyScore.score + 10,
+          },
+        });
+      } else {
+        const goals = Math.floor(Math.random() * 3) + 1;
+        result = `무승부! [${req.account.nickname}] ${goals} - ${goals} [${enemyAccount.nickname}]`;
+        newScore = myScore.score;
+
+        for (const account of updateScore) {
+          await tx.rank.update({
+            where: {
+              rank_id: account.rank_id,
+              account_id: account.account_id,
+            },
+            data: {
+              draw: account.draw + 1,
+            },
+          });
+        }
       }
-    }
+    });
 
     return res.status(201).json({ result, score: newScore });
   } catch (err) {
