@@ -133,19 +133,22 @@ router.post("/auction", authMiddleware, async (req, res, next) => {
       return res.status(404).json({ message: "선수 인벤토리에 해당 선수가 없습니다." });
     }
 
-    await accountPrisma.player_inventory.delete({
-      where: {
-        player_inventory_id: data.player_inventory_id,
-      },
-    });
+    const auctionPlayer = await accountPrisma.$transaction(async (tx) => {
+      await tx.player_inventory.delete({
+        where: {
+          player_inventory_id: data.player_inventory_id,
+        },
+      });
 
-    const auctionPlayer = await playerPrisma.auction.create({
-      data: {
-        player_id,
-        level,
-        cash,
-        account_id,
-      },
+      auctionPlayer = await playerPrisma.auction.create({
+        data: {
+          player_id,
+          level,
+          cash,
+          account_id,
+        },
+      });
+      return auctionPlayer;
     });
 
     return res.status(200).json({ auctionPlayer });
