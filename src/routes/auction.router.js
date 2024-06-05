@@ -243,7 +243,7 @@ router.delete("/auction/:auction_id", authMiddleware, async (req, res, next) => 
 });
 
 /* 상품 취소 */
-router.delete("/auctioncancle/:auction_id", authMiddleware, async (req, res, next) => {
+router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, next) => {
   const auction_id = +req.params.auction_id;
   const account_id = req.account.account_id;
 
