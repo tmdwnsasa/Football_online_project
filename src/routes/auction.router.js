@@ -54,18 +54,19 @@ router.get("/auction", async (req, res, next) => {
 router.get("/auction/:name", async (req, res) => {
   const name = req.params.name;
 
-  const player_id = await playerPrisma.player.findMany({
+  const player_name = await playerPrisma.player.findMany({
     where: {
       name,
     },
     select: {
-      player_id,
+      player_id: true,
+      level: true,
     },
   });
 
   const auctionArr = await playerPrisma.auction.findMany({
     where: {
-      player_id,
+      player_id: player_name.player_id,
     },
     select: {
       auction_id: true,
@@ -75,28 +76,25 @@ router.get("/auction/:name", async (req, res) => {
     },
   });
 
-  const idArr = auctionArr.map(({ player_id, level }) => {
-    [player_id, level];
-  });
+  const playerArr = [];
 
-  const playerArr = await playerPrisma.player.findMany({
-    where: {
-      player_id: {
-        in: idArr.player_id,
+  for (const { player_id, level } of auctionArr) {
+    const playerInfo = await playerPrisma.player.findFirst({
+      where: {
+        player_id: player_id,
+        level: level,
       },
-      level: {
-        in: idArr.level,
+      select: {
+        name: true,
+        speed: true,
+        goal_decision: true,
+        shoot_power: true,
+        defense: true,
+        stamina: true,
       },
-    },
-    select: {
-      name: true,
-      speed: true,
-      goal_decision: true,
-      shoot_power: true,
-      defense: true,
-      stamina: true,
-    },
-  });
+    });
+    playerArr.push(playerInfo);
+  }
 
   let datas = [];
 
