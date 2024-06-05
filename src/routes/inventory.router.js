@@ -4,14 +4,13 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-/* 선수 뽑기 API */
+/* 선수 가챠 API */
 router.post("/gatcha", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
     const randomId = Math.floor(Math.random() * 30);
     const playerGatcha = await playerPrisma.player.findFirst({
       where: {
-        // level이 1인 player를 랜덤으로 선정
         player_id: randomId,
         level: 1,
       },
@@ -25,8 +24,6 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
       stamina: playerGatcha.stamina,
     };
 
-    // gatcha에서 player_id랑 level을 뽑아서 player_inventory에 넣는다.
-    // 트랜잭션, create-update
     const myAccount = await accountPrisma.account.findFirst({
       where: {
         account_id: +account_id,
@@ -66,7 +63,7 @@ router.post("/gatcha", authMiddleware, async (req, res, next) => {
   }
 });
 
-//강화를 위한 인벤토리에 플레이어 확인
+/* 선수 인벤토리 확인 API */
 router.get("/inventory", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
@@ -98,15 +95,13 @@ router.get("/inventory", authMiddleware, async (req, res, next) => {
       );
     }
     playerData.sort((a, b) => a.player_id - b.player_id);
-    // console.log(array);
     return res.status(200).json({ playerData });
   } catch (err) {
     next(err);
   }
 });
-// 받아올 것 : player_id, level req.body
-//예외처리, 없는 캐릭터, 인벤에 없다, 레벨이 이미 최대, 돈이 없다.
 
+/* 선수 강화 API */
 router.post("/upgrade", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
@@ -131,7 +126,7 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
     if (level > 8) {
       return res.status(404).json({ message: "강화는 8강이 최대입니다." });
     }
-    //돈
+
     const accountCash = await accountPrisma.account.findFirst({
       where: {
         account_id: +account_id,
@@ -144,8 +139,6 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
       return res.status(400).json({ message: "돈이 부족합니다." });
     }
 
-    //트랙잭션
-    // 실행 되면 인벤에서 같은 캐릭터 2개를 delete
     const upgradePlayer = await accountPrisma.$transaction(async (tx) => {
       for (let i = 0; i < 2; i++) {
         await tx.player_inventory.delete({
@@ -157,7 +150,6 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
         });
       }
 
-      // 돈을 감소
       await tx.account.update({
         where: {
           account_id: +account_id,
@@ -167,7 +159,6 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
         },
       });
 
-      // 캐릭터 레벨 오른거 create
       const upgradePlayer = await tx.player_inventory.create({
         data: {
           account_id: +account_id,
@@ -203,7 +194,7 @@ router.post("/upgrade", authMiddleware, async (req, res, next) => {
   }
 });
 
-// 선수 방출
+/* 선수 방출 API */
 router.delete("/release", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
