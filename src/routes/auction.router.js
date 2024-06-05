@@ -4,7 +4,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-//상품 전체 검색
+/* 상품 전체 검색 API */
 router.get("/auction", async (req, res, next) => {
   try {
     const auctionArr = await playerPrisma.auction.findMany({
@@ -16,6 +16,7 @@ router.get("/auction", async (req, res, next) => {
       },
     });
 
+    // player_id와 level이 일치하는 선수 정보 가져오기
     const playerArr = [];
 
     for (const { player_id, level } of auctionArr) {
@@ -57,11 +58,12 @@ router.get("/auction", async (req, res, next) => {
   }
 });
 
-//상품 이름 검색
+/* 상품 이름 검색 API */
 router.get("/auction/:name", async (req, res) => {
   try {
     const name = req.params.name;
 
+    // params로 받은 name 값을 기준으로 선수 정보 가져오기
     const player_name = await playerPrisma.player.findMany({
       where: {
         name,
@@ -72,6 +74,7 @@ router.get("/auction/:name", async (req, res) => {
       },
     });
 
+    // 가져온 선수의 player_id를 기준으로 이적 시장에서 정보 가져오기
     const auctionArr = await playerPrisma.auction.findMany({
       where: {
         player_id: player_name[0].player_id,
@@ -84,6 +87,7 @@ router.get("/auction/:name", async (req, res) => {
       },
     });
 
+    // player_id와 level이 일치하는 선수 정보 가져오기
     const playerArr = [];
 
     for (const { player_id, level } of auctionArr) {
@@ -176,7 +180,7 @@ router.post("/auction", authMiddleware, async (req, res, next) => {
   }
 });
 
-/* 상품 구매 */
+/* 상품 구매 API */
 router.delete("/auction/:auction_id", authMiddleware, async (req, res, next) => {
   try {
     const auction_id = +req.params.auction_id;
@@ -261,7 +265,7 @@ router.delete("/auction/:auction_id", authMiddleware, async (req, res, next) => 
   }
 });
 
-/* 상품 취소 */
+/* 상품 등록 취소 API */
 router.delete("/auctioncancel/:auction_id", authMiddleware, async (req, res, next) => {
   try {
     const auction_id = +req.params.auction_id;
