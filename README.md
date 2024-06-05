@@ -6,7 +6,7 @@
 ![Untitled](https://github.com/tmdwnsasa/Football_online_project/assets/101966192/a1f45b90-db12-4598-b871-a05ec7db1540)
 
 ## 추가 구현 기능
-*******
+
 #### 선수 강화 기능
 *******
 + 선수를 강화할 때는 같은 선수 2개와 래밸에 따른 금액을 지불하여 강화할 수 있습니다.
