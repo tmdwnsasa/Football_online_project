@@ -16,11 +16,15 @@ router.get("/auction", async (req, res) => {
   });
 
   const idArr = auctionArr.map(({ player_id }) => player_id);
+  const levelArr = auctionArr.map(({ level }) => level);
 
   const playerArr = await playerPrisma.player.findMany({
     where: {
       player_id: {
         in: idArr,
+      },
+      level: {
+        in: levelArr,
       },
     },
     select: {
@@ -102,7 +106,7 @@ router.get("/auction/:name", async (req, res) => {
 //상품 등록
 router.post("/auction", authMiddleware, async (req, res, next) => {
   const { player_id, level, cash } = req.body;
-  const account_id = req.account.account_id;
+  const { account_id } = req.account;
 
   if (!player_id || !level || !cash) {
     return res.status(400).json({ message: "값이 충분히 입력되지 않았습니다." });
@@ -126,7 +130,7 @@ router.post("/auction", authMiddleware, async (req, res, next) => {
       player_id,
       level,
       cash,
-      account_id,
+      account_id: +account_id,
     },
   });
 
