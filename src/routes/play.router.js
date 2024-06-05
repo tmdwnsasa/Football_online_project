@@ -5,7 +5,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-/* 축구 게임, 게임 점수 조정 API */
+/* 매칭 API */
 router.get("/match", authMiddleware, async (req, res, next) => {
   try {
     const { account_id } = req.account;
@@ -73,6 +73,7 @@ router.get("/match", authMiddleware, async (req, res, next) => {
 
     const enemyAccountArr = [];
 
+    // 내 점수를 기준으로 위 아래 3명 가져오기
     for (let i = 0; i < scoreArr.length; i++) {
       if (scoreArr[i].account_id === account_id) {
         for (let j = i - 1; j >= 0 && j >= i - 3; j--) {

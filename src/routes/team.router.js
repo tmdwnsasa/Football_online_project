@@ -4,7 +4,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-/* 팀원 확인 API */
+/* 팀원 편성 확인 API */
 router.get("/team/:account_id", async (req, res, next) => {
   try {
     const account_id = req.params.account_id;
@@ -45,7 +45,7 @@ router.get("/team/:account_id", async (req, res, next) => {
   }
 });
 
-/* 팀원 배치 API */
+/* 팀원 편성 추가 API */
 router.post("/team", authMiddleware, async (req, res, next) => {
   try {
     const { player_id, level } = req.body;
@@ -76,7 +76,6 @@ router.post("/team", authMiddleware, async (req, res, next) => {
       }
     }
 
-    //여러가지 행동을 할 때 뭐는 되고 뭐는 안되고 하는 상황이 나오면 안될 때
     const print = await accountPrisma.$transaction(async (tx) => {
       const data = await tx.account_team.create({
         data: {
@@ -118,7 +117,7 @@ router.post("/team", authMiddleware, async (req, res, next) => {
   }
 });
 
-/* 팀원 해제 API */
+/* 팀원 편성 삭제 API */
 router.delete("/team", authMiddleware, async (req, res, next) => {
   try {
     const { player_id, level } = req.body;
@@ -190,7 +189,7 @@ router.delete("/team", authMiddleware, async (req, res, next) => {
   }
 });
 
-// 내 팀의 총파워
+/* 팀 파워 API */
 router.get("/teampower/:account_id", async (req, res, next) => {
   try {
     const { account_id } = req.params;
